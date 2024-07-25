@@ -7,14 +7,16 @@
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: #f9f9f9;
     }
 
 /* header css */
     header {
-      background-color: #ffffff;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.2); /* Warna latar belakang dengan transparansi */
+  backdrop-filter: blur(10px); /* Efek blur untuk latar belakang */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Garis pemisah bawah dengan transparansi */
       position: fixed;
       top: 0;
       left: 0;
@@ -36,9 +38,9 @@
       align-items: center;
     }
 
-    .logo svg {
-      width: 2rem;
-      height: auto;
+    .logo img {
+      width: auto;
+      height: 50px;
     }
 
     ul {
@@ -97,33 +99,108 @@
         display: none;
       }
     }
-.cta-button {
-  padding: 10px 20px;
-  background: #000000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 20px;
-}
 /* end header css */
 
 /* hero */
 .hero {
+  position: relative; /* Buat positioning overlay */
   text-align: center;
-  padding: 100px 20px;
-  background: #fff;
+  padding: 150px 20px;
+  background: url('#') no-repeat center center; /* Ganti dengan path gambar lo */
+  background-size: cover; /* Supaya gambar menutupi area */
 }
 
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Warna overlay putih dengan transparansi */
+  backdrop-filter: blur(10px); /* Efek blur kaca */
+  z-index: 1; /* Supaya overlay di atas gambar */
 }
 
-.hero p {
-  font-size: 18px;
-  margin-bottom: 30px;
+.hero h1, .hero p, .hero, .cta-button {
+  position: relative; /* Supaya teks dan tombol berada di atas overlay */
+  z-index: 1;
+}
+.cta-button {
+  padding: 10px 20px;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 20px;
+}
+.cta-button .svg-icon {
+  right: 10px; /* Atur jarak dari kanan sesuai kebutuhan */
+  width: 20px; /* Sesuaikan ukuran ikon */
+  height: 20px; /* Sesuaikan ukuran ikon */
+  fill: currentColor; /* Biar warna ikon ngikutin warna teks */
 }
 /* end hero */
 
+/* card 1 */
+.card-container {
+  display: flex; /* Menggunakan Flexbox untuk tata letak bersebelahan */
+  overflow-x: auto; /* Menambahkan scroll horizontal jika card melebihi lebar layar */
+  padding: 20px; /* Jarak dari tepi kontainer */
+  gap: 20px; /* Jarak antar card */
+}
+
+.container-title {
+  font-size: 36px; /* Ukuran font judul */
+  font-weight: bold; /* Menebalkan font judul */
+  margin-bottom: 20px; /* Jarak di bawah judul */
+  text-align: center; /* Meratakan teks ke tengah */
+}
+
+.card {
+  flex: 0 0 auto; /* Menghindari card untuk menyusut dan memungkinkan mereka tampil dengan lebar tetap */
+  position: relative;
+  width: 300px;
+  max-wi/th: 400px; /* Sesuaikan dengan ukuran yang lu mau */
+  margin: 10px;
+  overflow: hidden;
+  border: 1px solid gray;
+  border-radius: 25px; /* Bisa diubah atau dihilangkan sesuai kebutuhan */
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background: rgba(255, 255, 255, 0.1); /* Warna latar belakang tulisan dengan transparansi */
+  backdrop-filter: blur(5px); /* Efek blur */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 24px; /* Sesuaikan ukuran font judul */
+  font-weight: bold;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 16px; /* Sesuaikan ukuran font deskripsi */
+}
+/* end card 1 */
+
+
+/* footer */
+
+/* end footer */
   </style>
 </head>
 <body>
@@ -132,12 +209,9 @@
   <header>
     <nav>
       <!-- Logo -->
-      <a href="/" aria-label="Home" class="logo">
-        <svg viewBox="0 0 28 28" fill="black" xmlns="http://www.w3.org/2000/svg">
-          <!-- SVG path here -->
-          <path d="M26.153 11.46a6.888 6.888 0 0 0-.608-5.73 7.117 7.117 0 0 0-3.29-2.93 7.238 7.238 0 0 0-4.41-.454 7.065 7.065 0 0 0-2.41-1.742A7.15 7.15 0 0 0 12.514 0a7.216 7.216 0 0 0-4.217 1.346 7.061 7.061 0 0 0-2.603 3.539 7.12 7.12 0 0 0-2.734 1.188A7.012 7.012 0 0 0 .966 8.268a6.979 6.979 0 0 0 .88 8.273 6.89 6.89 0 0 0 .607 5.729 7.117 7.117 0 0 0 3.29 2.93 7.238 7.238 0 0 0 4.41.454 7.061 7.061 0 0 0 2.409 1.742c.92.404 1.916.61 2.923.604a7.215 7.215 0 0 0 4.22-1.345 7.06 7.06 0 0 0 2.605-3.543 7.116 7.116 0 0 0 2.734-1.187 7.01 7.01 0 0 0 1.993-2.196 6.978 6.978 0 0 0-.884-8.27Zm-10.61 14.71c-1.412 0-2.505-.428-3.46-1.215.043-.023.119-.064.168-.094l5.65-3.22a.911.911 0 0 0 .464-.793v-7.86l2.389 1.36a.087.087 0 0 1 .046.065v6.508c0 2.952-2.491 5.248-5.257 5.248ZM4.062 21.354a5.17 5.17 0 0 1-.635-3.516c.042.025.115.07.168.1l5.65 3.22a.928.928 0 0 0 .928 0l6.898-3.93v2.72a.083.083 0 0 1-.034.072l-5.711 3.255a5.386 5.386 0 0 1-4.035.522 5.315 5.315 0 0 1-3.23-2.443ZM2.573 9.184a5.283 5.283 0 0 1 2.768-2.301V13.515a.895.895 0 0 0 .464.793l6.897 3.93-2.388 1.36a.087.087 0 0 1-.08.008L4.52 16.349a5.262 5.262 0 0 1-2.475-3.185 5.192 5.192 0 0 1 .527-3.98Zm19.623 4.506-6.898-3.93 2.388-1.36a.087.087 0 0 1 .08-.008l5.713 3.255a5.28 5.28 0 0 1 2.054 2.118 5.19 5.19 0 0 1-.488 5.608 5.314 5.314 0 0 1-2.39 1.742v-6.633a.896.896 0 0 0-.459-.792Zm2.377-3.533a7.973 7.973 0 0 0-.168-.099l-5.65-3.22a.93.93 0 0 0-.928 0l-6.898 3.93V8.046a.083.083 0 0 1 .034-.072l5.712-3.251a5.375 5.375 0 0 1 5.698.241 5.262 5.262 0 0 1 1.865 2.28c.39.92.506 1.93.335 2.913ZM9.631 15.009l-2.39-1.36a.083.083 0 0 1-.046-.065V7.075c.001-.997.29-1.973.832-2.814a5.297 5.297 0 0 1 2.231-1.935 5.382 5.382 0 0 1 5.659.72 4.89 4.89 0 0 0-.168.093l-5.65 3.22a.913.913 0 0 0-.465.793l-.003 7.857Zm1.297-2.76L14 10.5l3.072 1.75v3.5L14 17.499l-3.072-1.75v-3.5Z"/>
-        </svg>
-      </a>
+   <a href="/" aria-label="Home" class="logo">
+      <img src="images/1721920698531.png" alt="Ahtera Logo" class="logo-img" />
+    </a>
 
       <!-- Navigation Menu -->
       <ul>
@@ -161,11 +235,41 @@
 <!-- hero page -->
   <main>
     <section class="hero">
-      <h1>Explore our gallery</h1>
-      <p>Discover our products and services</p>
-      <a href="#" class="cta-button">Get Started</a>
+      <h1>A Hub for Developers and Designers</h1>
+      <p>Cutting-edge tools for creativity and efficiency.</p>
+      <a href="#" class="cta-button">
+  Get Started
+  <svg class="svg-icon" viewBox="0 0 20 20">
+    <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
+  </svg>
+</a>
     </section>
 <!-- end hero page -->
+
+<!-- container -->
+<div class="container">
+  <h1 class="container-title">For Developer</h1>
+<div class="card-container">
+  <!-- card 1 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 1 -->
+  
+  <!-- card 2 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 2 -->
+</div>
   
   </main>
 
@@ -189,5 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <!-- end header js -->
+
+<!--footer-->
+
+<!-- end footer-->
 </body>
 </html>
