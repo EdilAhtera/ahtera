@@ -97,11 +97,19 @@
 }
 
 /* card 1 */
+
+.container {
+  margin: 20px auto;
+  padding: 0 20px;
+  max-width: 1200px;
+  text-align: center;
+}
+    
 .card-container {
-  display: flex; /* Menggunakan Flexbox untuk tata letak bersebelahan */
-  overflow-x: auto; /* Menambahkan scroll horizontal jika card melebihi lebar layar */
-  padding: 20px; /* Jarak dari tepi kontainer */
-  gap: 20px; /* Jarak antar card */
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 10px;
 }
 
 .container-title {
@@ -112,14 +120,13 @@
 }
 
 .card {
-  flex: 0 0 auto; /* Menghindari card untuk menyusut dan memungkinkan mereka tampil dengan lebar tetap */
-  position: relative;
-  width: 300px;
-  max-wi/th: 400px; /* Sesuaikan dengan ukuran yang lu mau */
-  margin: 10px;
+  flex: 0 0 auto;
+  width: 200px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid gray;
-  border-radius: 25px; /* Bisa diubah atau dihilangkan sesuai kebutuhan */
+  margin: 0 10px;
 }
 
 .card-img {
@@ -149,6 +156,17 @@
 .card-description {
   margin: 0;
   font-size: 16px; /* Sesuaikan ukuran font deskripsi */
+}
+
+.pagination-button {
+  background: none;
+  border: 2px solid #000;
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* end card 1 */
 
