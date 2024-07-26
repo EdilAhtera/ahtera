@@ -51,7 +51,10 @@
 /* Tambahan untuk navigasi aktif */
 .navigation.active {
     height: calc(100vh - 50px); /* Atur tinggi menu saat aktif */
-filter: blur(15px); /* Efek blur */
+backdrop-filter: blur(15px); /* Efek blur */
+position: fixed;
+text-align: center;
+      z-index: 1000; /* Pastikan elemen ini berada di atas elemen lain */
 }
 
 /* Icon 4 Styling */
