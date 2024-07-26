@@ -13,94 +13,6 @@
       background-color: #f9f9f9;
     }
 
-/* header css */
-    header {
-      background: rgba(255, 255, 255, 0.2); /* Warna latar belakang dengan transparansi */
-  backdrop-filter: blur(10px); /* Efek blur untuk latar belakang */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Garis pemisah bawah dengan transparansi */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 50;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      width: auto;
-      height: 50px;
-    }
-
-    ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    ul li {
-      margin-right: 1.5rem;
-    }
-
-    ul li:last-child {
-      margin-right: 0;
-    }
-
-    a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: #000;
-    }
-
-    .search-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border: none;
-      background: none;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .search-btn svg {
-      width: 1.25rem;
-      height: auto;
-    }
-
-    .search-btn:hover {
-      color: #000;
-    }
-
-    @media (max-width: 768px) {
-      ul {
-        display: none;
-      }
-
-      .search-btn {
-        display: none;
-      }
-    }
-/* end header css */
 
 /* hero */
 .hero {
@@ -142,96 +54,33 @@
 }
 /* end hero */
 
-/* card 1 */
-.card-container {
-  display: flex; /* Menggunakan Flexbox untuk tata letak bersebelahan */
-  overflow-x: auto; /* Menambahkan scroll horizontal jika card melebihi lebar layar */
-  padding: 20px; /* Jarak dari tepi kontainer */
-  gap: 20px; /* Jarak antar card */
-}
 
-.container-title {
-  font-size: 36px; /* Ukuran font judul */
-  font-weight: bold; /* Menebalkan font judul */
-  margin-bottom: 20px; /* Jarak di bawah judul */
-  text-align: center; /* Meratakan teks ke tengah */
-}
-
-.card {
-  flex: 0 0 auto; /* Menghindari card untuk menyusut dan memungkinkan mereka tampil dengan lebar tetap */
-  position: relative;
-  width: 300px;
-  max-wi/th: 400px; /* Sesuaikan dengan ukuran yang lu mau */
-  margin: 10px;
-  overflow: hidden;
-  border: 1px solid gray;
-  border-radius: 25px; /* Bisa diubah atau dihilangkan sesuai kebutuhan */
-}
-
-.card-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: white;
-  background: rgba(255, 255, 255, 0.1); /* Warna latar belakang tulisan dengan transparansi */
-  backdrop-filter: blur(5px); /* Efek blur */
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.card-title {
-  margin: 0 0 10px;
-  font-size: 24px; /* Sesuaikan ukuran font judul */
-  font-weight: bold;
-}
-
-.card-description {
-  margin: 0;
-  font-size: 16px; /* Sesuaikan ukuran font deskripsi */
-}
-/* end card 1 */
-
-
-/* footer */
-
-/* end footer */
   </style>
 </head>
 <body>
 
-<!-- header -->
-  <header>
-    <nav>
-      <!-- Logo -->
-   <a href="/" aria-label="Home" class="logo">
-      <img src="images/1721920698531.png" alt="Ahtera Logo" class="logo-img" />
-    </a>
+<!--header-->
+<!-- include dari header.html -->
+<div id="include-header"></div>
 
-      <!-- Navigation Menu -->
-      <ul>
-        <li><a href="/research">Research</a></li>
-        <li><a href="/products">Products</a></li>
-        <li><a href="/safety">Safety</a></li>
-        <li><a href="/company">Company</a></li>
-      </ul>
-
-      <!-- Search Button -->
-      <button type="button" class="search-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="6" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-      </button>
-    </nav>
-  </header>
-<!-- end header -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'header.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('include-header').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Failed to load header.html:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
+<!-- end include dari header.html -->
+<!-- end header-->
 
 <!-- hero page -->
   <main>
@@ -245,33 +94,52 @@
   </svg>
 </a>
     </section>
-<!-- end hero page -->
 
-<!-- container -->
-<div class="container">
-  <h1 class="container-title">For Developer</h1>
-<div class="card-container">
-  <!-- card 1 -->
-  <div class="card">
-    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
-    <div class="card-content">
-      <h2 class="card-title">Judul Card</h2>
-      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
-    </div>
-  </div>
-  <!-- end card 1 -->
-  
-  <!-- card 2 -->
-  <div class="card">
-    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
-    <div class="card-content">
-      <h2 class="card-title">Judul Card</h2>
-      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
-    </div>
-  </div>
-  <!-- end card 2 -->
-</div>
-  
+<!--for-developer-->
+<!-- include dari for-developer .html -->
+<div id="include-for-developer"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'for-developer.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('include-for-developer').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Failed to load for-developer.html:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
+<!-- end include dari for-developer.html -->
+<!-- end for-developer -->
+
+<!--for-designers-->
+<!-- include dari for-designers .html -->
+<div id="include-for-designers"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'for-designers.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('include-for-designers').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Failed to load for-designers.html:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
+<!-- end include dari for-designers.html -->
+<!-- end for-designers -->
   </main>
 
 
@@ -293,10 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-<!-- end header js -->
-
 <!--footer-->
+<!-- include dari footer.html -->
+<div id="include-footer"></div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'footer.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('include-footer').innerHTML = xhr.responseText;
+                    } else {
+                        console.error('Failed to load footer.html:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
+<!-- end include dari footer.html -->
 <!-- end footer-->
 </body>
 </html>
