@@ -261,19 +261,19 @@
   <h1 class="container-title">For Developer</h1>
 
   <div class="pagination-container" style="display: flex; justify-content: center; align-items: center; padding: 10px;">
-    <button id="prevButton-developer" class="pagination-button">
+    <button id="prevButton-developer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 6px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
       </svg>
     </button>
-    <button id="nextButton-developer" class="pagination-button">
+    <button id="nextButton-developer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
       </svg>
     </button>
   </div>
-
-  <div class="card-container">
+  
+  <div class="card-container" style="display: flex; overflow-x: auto;">
     <!-- card 1 -->
     <div id="card1" class="card">
       <img src="images/__20240726_152807_0001.gif" alt="Card Image" class="card-img">
@@ -283,7 +283,7 @@
       </div>
     </div>
     <!-- end card 1 -->
-    
+
     <!-- card 2 -->
     <div id="card2" class="card">
       <img src="images/__20240726_152807_0001.gif" alt="Card Image" class="card-img">
@@ -335,19 +335,19 @@
   <h1 class="container-title">For Designer</h1>
 
   <div class="pagination-container" style="display: flex; justify-content: center; align-items: center; padding: 10px;">
-    <button id="prevButton-designer" class="pagination-button">
+    <button id="prevButton-designer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 6px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
       </svg>
     </button>
-    <button id="nextButton-designer" class="pagination-button">
+    <button id="nextButton-designer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
       </svg>
     </button>
   </div>
 
-  <div class="card-container">
+  <div class="card-container" style="display: flex; overflow-x: auto;">
     <!-- card 1 -->
     <div id="card1" class="card">
       <img src="images/__20240726_152807_0001.gif" alt="Card Image" class="card-img">
@@ -357,7 +357,7 @@
       </div>
     </div>
     <!-- end card 1 -->
-    
+
     <!-- card 2 -->
     <div id="card2" class="card">
       <img src="images/__20240726_152807_0001.gif" alt="Card Image" class="card-img">
@@ -399,10 +399,8 @@
     <!-- end card 5 -->
   </div>
 </div>
-<!-- end include dari for-designer.html
-
-
-
+<!-- end include dari for-designer.html -->
+<!-- end for-designer -->
   </main>
 
 
@@ -448,61 +446,45 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- end footer-->
 
 <!-- script pagination-->
+
 <script>
-// Mendapatkan elemen kontainer kartu untuk setiap bagian
-// Mendapatkan elemen kontainer kartu untuk setiap bagian
-const cardContainers = {
-  developer: document.querySelector('#card-container-developer'),
-  designer: document.querySelector('#card-container-designer')
-};
-
-// Menyimpan index card saat ini untuk setiap kontainer
-const currentIndices = {
-  developer: 0,
-  designer: 0
-};
-
-// Fungsi untuk menggeser ke card tertentu
-function scrollToCard(container, index) {
-  const cards = Array.from(container.querySelectorAll('.card'));
-  if (index >= 0 && index < cards.length) {
-    const offset = index * (cards[0].offsetWidth + 20); // 20 adalah gap antar card
-    container.scrollTo({
-      left: offset,
+document.addEventListener("DOMContentLoaded", function() {
+  const cardContainerDeveloper = document.querySelector("#card-container-developer .card-container");
+  const cardContainerDesigner = document.querySelector("#card-container-designer .card-container");
+  
+  const prevButtonDeveloper = document.getElementById("prevButton-developer");
+  const nextButtonDeveloper = document.getElementById("nextButton-developer");
+  const prevButtonDesigner = document.getElementById("prevButton-designer");
+  const nextButtonDesigner = document.getElementById("nextButton-designer");
+  
+  prevButtonDeveloper.addEventListener("click", function() {
+    cardContainerDeveloper.scrollBy({
+      left: -cardContainerDeveloper.clientWidth,
       behavior: 'smooth'
     });
-    // Update index card saat ini
-    const containerId = container.id;
-    currentIndices[containerId] = index;
-  }
-}
-
-// Menangani klik tombol prev dan next
-function setupPagination(containerId) {
-  const container = cardContainers[containerId];
-  if (!container) return;
-
-  const prevButton = document.getElementById(`prevButton-${containerId}`);
-  const nextButton = document.getElementById(`nextButton-${containerId}`);
-
-  prevButton.addEventListener('click', () => {
-    if (currentIndices[containerId] > 0) {
-      scrollToCard(container, currentIndices[containerId] - 1);
-    }
+  });
+  
+  nextButtonDeveloper.addEventListener("click", function() {
+    cardContainerDeveloper.scrollBy({
+      left: cardContainerDeveloper.clientWidth,
+      behavior: 'smooth'
+    });
   });
 
-  nextButton.addEventListener('click', () => {
-    const cards = Array.from(container.querySelectorAll('.card'));
-    if (currentIndices[containerId] < cards.length - 1) {
-      scrollToCard(container, currentIndices[containerId] + 1);
-    }
+  prevButtonDesigner.addEventListener("click", function() {
+    cardContainerDesigner.scrollBy({
+      left: -cardContainerDesigner.clientWidth,
+      behavior: 'smooth'
+    });
   });
-}
-
-// Inisialisasi tombol pagination untuk setiap bagian
-setupPagination('developer');
-setupPagination('designer');
-
+  
+  nextButtonDesigner.addEventListener("click", function() {
+    cardContainerDesigner.scrollBy({
+      left: cardContainerDesigner.clientWidth,
+      behavior: 'smooth'
+    });
+  });
+});
 </script>
 </body>
 </html>
