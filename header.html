@@ -1,4 +1,3 @@
-
 <style>
 /* Header styling */
 .header {
@@ -54,9 +53,9 @@
     width: 20px; /* Lebar ikon lebih kecil */
     height: 16px; /* Tinggi ikon lebih kecil */
     position: relative; /* Ubah posisi menjadi relative */
-    margin: 0; /* Hapus margin untuk penempatan yang tepat */
     cursor: pointer;
     color: black;
+    display: none; /* Sembunyikan ikon di mode desktop */
 }
 
 #nav-icon1 {
@@ -128,8 +127,16 @@
     .navigation.active {
         display: flex;
     }
-}
 
+    /* Ikon menu di mobile */
+    #nav-icon1 {
+        display: flex; /* Tampilkan ikon hanya di mobile */
+        position: absolute;
+        top: 50%; /* Posisi vertikal tengah */
+        right: 20px; /* Jarak dari kanan */
+        transform: translateY(-50%); /* Posisikan dengan benar di tengah secara vertikal */
+    }
+}
 
 </style>
     <header class="header">
