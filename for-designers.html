@@ -1,0 +1,112 @@
+<!-- end hero page -->
+<style>
+/* card 1 */
+.card-container {
+  display: flex; /* Menggunakan Flexbox untuk tata letak bersebelahan */
+  overflow-x: auto; /* Menambahkan scroll horizontal jika card melebihi lebar layar */
+  padding: 20px; /* Jarak dari tepi kontainer */
+  gap: 20px; /* Jarak antar card */
+}
+
+.container-title {
+  font-size: 36px; /* Ukuran font judul */
+  font-weight: bold; /* Menebalkan font judul */
+  margin-bottom: 20px; /* Jarak di bawah judul */
+  text-align: center; /* Meratakan teks ke tengah */
+}
+
+.card {
+  flex: 0 0 auto; /* Menghindari card untuk menyusut dan memungkinkan mereka tampil dengan lebar tetap */
+  position: relative;
+  width: 300px;
+  max-wi/th: 400px; /* Sesuaikan dengan ukuran yang lu mau */
+  margin: 10px;
+  overflow: hidden;
+  border: 1px solid gray;
+  border-radius: 25px; /* Bisa diubah atau dihilangkan sesuai kebutuhan */
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background: rgba(255, 255, 255, 0.1); /* Warna latar belakang tulisan dengan transparansi */
+  backdrop-filter: blur(5px); /* Efek blur */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 24px; /* Sesuaikan ukuran font judul */
+  font-weight: bold;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 16px; /* Sesuaikan ukuran font deskripsi */
+}
+/* end card 1 */
+</style>
+<!-- container -->
+<div class="container">
+  <h1 class="container-title">For Designers</h1>
+<div class="card-container">
+  <!-- card 1 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 1 -->
+  
+  <!-- card 2 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 2 -->
+
+  <!-- card 3 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 3 -->
+
+  <!-- card 4 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 4 -->
+
+  <!-- card 5 -->
+  <div class="card">
+    <img src="images/320c1ee7927169e0b4df96335035b834.jpg" alt="Card Image" class="card-img">
+    <div class="card-content">
+      <h2 class="card-title">Judul Card</h2>
+      <p class="card-description">Ini deskripsi singkat tentang card ini.</p>
+    </div>
+  </div>
+  <!-- end card 5 -->
+</div>

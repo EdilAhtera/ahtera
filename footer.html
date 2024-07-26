@@ -1,0 +1,128 @@
+<style>
+/* footer */
+/* footer */
+.footer {
+  background: #f5f5f5;
+  padding: 40px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer .column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer .column h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.footer .column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .column ul li {
+  margin-bottom: 10px;
+}
+
+.footer .column ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer .column ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer .social-links a {
+  color: #333;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.footer .social-links a:hover {
+  color: #007bff;
+}
+
+.footer .copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer .column {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .footer .column ul {
+    padding-left: 0; /* Menghapus padding kiri di mobile */
+  }
+}
+</style>
+<!-- footer -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="column">
+      <h3>Company</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">API Reference</a></li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Community</h3>
+      <ul>
+        <li><a href="#">For Developers</a></li>
+        <li><a href="#">For Designers</a></li>
+        <li><a href="#">For Education</a></li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    &copy; 2024 ahtera™. All rights reserved.
+  </div>
+</footer>

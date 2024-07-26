@@ -1,0 +1,127 @@
+
+<style>
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+    backdrop-filter: blur(15px); /* Efek blur */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow untuk efek depth */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 50px; /* Atur tinggi header */
+    box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Menghilangkan garis bawah pada link logo */
+}
+
+.logo img {
+    height: 50px; /* Sesuaikan dengan tinggi header */
+    width: auto; /* Jaga agar proporsi gambar tetap */
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    justify-content: center; /* Pusatkan menu navigasi secara horizontal */
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #000000; /* Warna link */
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #f0f0f0; /* Warna hover link */
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger-open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px; /* Sesuaikan padding jika diperlukan */
+    }
+
+    .navigation {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        align-items: center; /* Menyusun item di tengah-tengah secara horizontal */
+    }
+
+    .navigation.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+</style>
+    <header class="header">
+        <a href="https://example.com" class="logo">
+            <img src="images/1721920698531.png" alt="Logo">
+        </a>
+        <nav class="navigation" id="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+
+    <script>
+// script.js
+document.getElementById('hamburger').addEventListener('click', function() {
+    const nav = document.getElementById('nav');
+    this.classList.toggle('hamburger-open');
+    nav.classList.toggle('active');
+});
+</script>
