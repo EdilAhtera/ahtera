@@ -1,6 +1,5 @@
 <style>
 /* Header styling */
-/* Header styling */
 .header {
     display: flex;
     align-items: center;
@@ -47,6 +46,7 @@
 .navigation a:hover {
     color: #f0f0f0; /* Warna hover link */
 }
+
 /* Tambahan untuk navigasi di mode mobile */
 .navigation.active {
     display: flex;
@@ -64,6 +64,7 @@
     z-index: 999; /* Biar di atas yang lain */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 /* Icon 4 Styling */
 #nav-icon4 {
     width: 20px; /* Lebar ikon */
@@ -146,12 +147,16 @@
         backdrop-filter: blur(20px); /* Efek blur */
     }
 
+    .navigation a {
+        font-size: 24px; /* Ukuran font lebih besar */
+        font-weight: bold; /* Bold font */
+    }
+
     /* Ikon menu di mobile */
     #nav-icon4 {
         display: flex; /* Tampilkan ikon hanya di mobile */
     }
 }
-
 
 </style>
     <header class="header">
