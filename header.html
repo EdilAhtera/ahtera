@@ -15,20 +15,18 @@
       <span></span>
     </div>
   </header>
+<script>
+  $(document).ready(function(){
+    $('#nav-icon4').click(function(){
+        $(this).toggleClass('open');
+        $('.navigation').toggleClass('active');
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function(){
-        $('#nav-icon4').click(function(){
-            $(this).toggleClass('open');
-            $('.navigation').toggleClass('active');
-
-            // Perubahan tinggi header
-            if ($('.navigation').hasClass('active')) {
-                $('.header').css('height', 'calc(50px + 100vh - 50px)'); // Atur tinggi header saat menu aktif
-            } else {
-                $('.header').css('height', '50px'); // Kembalikan tinggi header
-            }
-        });
+        // Perubahan tinggi header hanya jika perlu
+        if ($('.navigation').hasClass('active')) {
+            $('.header').addClass('expanded'); // Tambahkan kelas untuk efek CSS
+        } else {
+            $('.header').removeClass('expanded'); // Hapus kelas untuk efek CSS
+        }
     });
+});
 </script>
