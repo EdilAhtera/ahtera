@@ -97,26 +97,23 @@
 }
 
 /* card 1 */
-
 .container {
   margin: 20px auto;
   padding: 0 20px;
   max-width: 1200px;
   text-align: center;
 }
-    
+
+.container-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
 .card-container {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 10px;
-}
-
-.container-title {
-  font-size: 36px; /* Ukuran font judul */
-  font-weight: bold; /* Menebalkan font judul */
-  margin-bottom: 20px; /* Jarak di bawah judul */
-  text-align: center; /* Meratakan teks ke tengah */
 }
 
 .card {
@@ -132,30 +129,21 @@
 .card-img {
   width: 100%;
   height: auto;
-  display: block;
+  border-bottom: 1px solid #ddd;
 }
 
 .card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  color: white;
-  background: rgba(255, 255, 255, 0.1); /* Warna latar belakang tulisan dengan transparansi */
-  backdrop-filter: blur(5px); /* Efek blur */
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 10px;
 }
 
 .card-title {
-  margin: 0 0 10px;
-  font-size: 24px; /* Sesuaikan ukuran font judul */
-  font-weight: bold;
+  font-size: 1.2em;
+  margin: 10px 0;
 }
 
 .card-description {
-  margin: 0;
-  font-size: 16px; /* Sesuaikan ukuran font deskripsi */
+  font-size: 0.9em;
+  color: #666;
 }
 
 .pagination-button {
@@ -168,6 +156,7 @@
   align-items: center;
   justify-content: center;
 }
+
 /* end card 1 */
 
   </style>
