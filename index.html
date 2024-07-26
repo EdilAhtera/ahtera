@@ -120,60 +120,50 @@
   
 }
 .container-title {
-  font-size: 2em;
-  margin-bottom: 10px;
+  font-size: 36px; /* Ukuran font judul */
+  font-weight: bold; /* Menebalkan font judul */
+  margin-bottom: 20px; /* Jarak di bawah judul */
+  text-align: center; /* Meratakan teks ke tengah */
 }
-
-.card-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 10px;
-  padding-top:10px;
-  padding-bottom:10px;
-}
-  /* Hide scrollbar for Chrome, Safari and Opera */
-.card-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.card-container {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
 
 .card {
-  flex: 0 0 auto;
-  width: 200px;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 25px;
+  flex: 0 0 auto; /* Menghindari card untuk menyusut dan memungkinkan mereka tampil dengan lebar tetap */
+  position: relative;
+  width: 300px;
+  max-wi/th: 400px; /* Sesuaikan dengan ukuran yang lu mau */
+  margin: 10px;
   overflow: hidden;
-  margin: 0 10px;
+  border: 1px solid gray;
+  border-radius: 25px; /* Bisa diubah atau dihilangkan sesuai kebutuhan */
 }
 
 .card-img {
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #ddd;
+  display: block;
 }
 
 .card-content {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background: rgba(255, 255, 255, 0.1); /* Warna latar belakang tulisan dengan transparansi */
+  backdrop-filter: blur(5px); /* Efek blur */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .card-title {
-  font-size: 1.2em;
-  margin: 10px 0;
+  margin: 0 0 10px;
+  font-size: 24px; /* Sesuaikan ukuran font judul */
+  font-weight: bold;
 }
 
 .card-description {
-  font-size: 0.9em;
-  color: #666;
+  margin: 0;
+  font-size: 16px; /* Sesuaikan ukuran font deskripsi */
 }
 
 .pagination-button {
