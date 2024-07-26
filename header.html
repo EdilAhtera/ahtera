@@ -35,7 +35,6 @@
     gap: 20px;
     flex-grow: 1;
     justify-content: center; /* Pusatkan menu navigasi secara horizontal */
-    background:black;
 }
 
 .navigation a {
@@ -125,6 +124,8 @@
 
     .navigation.active {
         display: flex;
+	background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+        backdrop-filter: blur(15px); /* Efek blur */
     }
 
     /* Ikon menu di mobile */
