@@ -42,7 +42,7 @@
     width: 100%;
     top: 50px; /* Sesuaikan dengan tinggi header */
     left: 0;
-    z-index: 999; /* Pastikan menu di atas konten lain */
+    z-index: 1000; /* Pastikan menu di atas konten lain */
     height: 0; /* Mulai dengan tinggi 0 */
     overflow: hidden; /* Sembunyikan isi jika overflow */
     transition: height 0.3s ease; /* Transisi perubahan tinggi menu */
@@ -52,8 +52,7 @@
 .navigation.active {
     height: calc(100vh - 50px); /* Atur tinggi menu saat aktif */
 backdrop-filter: blur(15px); /* Efek blur */
-position: fixed;
-text-align: center;
+position: absolute;
       z-index: 1000; /* Pastikan elemen ini berada di atas elemen lain */
 }
 
