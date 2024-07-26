@@ -58,7 +58,7 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 50px); /* Tinggi full kecuali header */
-    background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+    background: rgba(255, 255, 255, 0.5); /* Transparan dengan efek kaca blur */
     backdrop-filter: blur(15px); /* Efek blur */
     z-index: 999; /* Biar di atas yang lain */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -131,15 +131,18 @@
         position: absolute;
         top: 50px;
         left: 0;
+        background: rgba(255, 255, 255, 0.9); /* Background solid buat fallback */
+        backdrop-filter: blur(10px); /* Efek blur */
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         align-items: center; /* Menyusun item di tengah-tengah secara horizontal */
     }
 
     .navigation.active {
         display: flex;
-	background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+        background: rgba(255, 255, 255, 0.5); /* Transparan dengan efek kaca blur */
         backdrop-filter: blur(15px); /* Efek blur */
     }
+
 
     /* Ikon menu di mobile */
     #nav-icon4 {
