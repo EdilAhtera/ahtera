@@ -15,18 +15,12 @@
       <span></span>
     </div>
   </header>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function(){
-    $('#nav-icon4').click(function(){
-        $(this).toggleClass('open');
-        $('.navigation').toggleClass('active');
-
-        // Perubahan tinggi header hanya jika perlu
-        if ($('.navigation').hasClass('active')) {
-            $('.header').addClass('expanded'); // Tambahkan kelas untuk efek CSS
-        } else {
-            $('.header').removeClass('expanded'); // Hapus kelas untuk efek CSS
-        }
+    $(document).ready(function(){
+        $('#nav-icon4').click(function(){
+            $(this).toggleClass('open');
+            $('.navigation').toggleClass('active');
+        });
     });
-});
 </script>
