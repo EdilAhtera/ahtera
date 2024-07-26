@@ -74,9 +74,10 @@
 #nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
   width: 20px; /* Lebar ikon lebih kecil */
   height: 16px; /* Tinggi ikon lebih kecil */
-  position: relative;
-  margin: 10px auto; /* Sesuaikan margin dengan tinggi header */
-  transform: rotate(0deg);
+  position: absolute; /* Ubah posisi menjadi absolute */
+  top: 50%; /* Posisi di tengah vertikal */
+  right: 20px; /* Jarak dari kanan header */
+  transform: translateY(-50%) rotate(0deg); /* Posisikan dengan benar dan atur rotasi */
   transition: .5s ease-in-out;
   cursor: pointer;
   color: black;
@@ -122,8 +123,10 @@
   transform: rotate(-135deg);
 }
 
-#nav-icon1 {
-  display: flex;
+.header {
+  position: relative; /* Pastikan header memiliki positioning relative */
+  height: 50px; /* Sesuaikan dengan tinggi header */
+  background: #f0f0f0; /* Contoh background, bisa diganti sesuai kebutuhan */
 }
 
 </style>
