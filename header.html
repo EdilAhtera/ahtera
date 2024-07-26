@@ -49,21 +49,20 @@
 
 /* Tambahan untuk navigasi di mode mobile */
 .navigation.active {
-    display: flex;
-    flex-direction: column;
+display: flex;
     align-items: center;
-    justify-content: center; /* Biar vertikal center */
-    position: fixed; /* Biar nggak ngikutin scroll */
-    top: 50px; /* Biar nggak nutupin header */
-    left: 0;
+flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+    backdrop-filter: blur(15px); /* Efek blur */
+    position: fixed;
     width: 100%;
-    height: calc(100vh - 50px); /* Tinggi full kecuali header */
-    -webkit-backdrop-filter: blur(20px); /* Efek blur untuk Safari */
-    backdrop-filter: blur(20px); /* Efek blur */
-    -moz-backdrop-filter: blur(20px); /* Untuk browser Firefox */
-    -ms-backdrop-filter: blur(20px); /* Untuk browser Internet Explorer */
-    z-index: 1000; /* Biar di atas yang lain */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 50px; /* Atur tinggi header */
+    box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
 }
 
 /* Icon 4 Styling */
