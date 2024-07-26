@@ -160,10 +160,9 @@
 
 
     <script>
-// script.js
-document.getElementById('hamburger').addEventListener('click', function() {
-    const nav = document.getElementById('nav');
-    this.classList.toggle('hamburger-open');
-    nav.classList.toggle('active');
+$(document).ready(function(){
+	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+		$(this).toggleClass('open');
+	});
 });
 </script>
