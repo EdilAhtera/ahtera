@@ -230,7 +230,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1002; /* Pastikan header berada di atas */
+    z-index: 1000; /* Pastikan header berada di atas */
     height: 50px; /* Atur tinggi default header */
     box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
     transition: height 0.3s ease; /* Transisi perubahan tinggi header */
@@ -241,10 +241,10 @@
     display: flex;
     align-items: center;
     text-decoration: none; /* Menghilangkan garis bawah pada link logo */
-    z-index: 1003; /* Pastikan logo berada di atas header dan navigasi */
-    position: relative; /* Atur posisi relative agar tetap pada tempatnya */
+    z-index: 1001; /* Pastikan logo berada di atas header dan navigasi */
 }
 
+/* Logo image */
 .logo img {
     height: 50px; /* Sesuaikan dengan tinggi header */
     width: auto; /* Jaga agar proporsi gambar tetap */
@@ -255,18 +255,17 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    flex-grow: 1;
     justify-content: center; /* Pusatkan menu navigasi secara horizontal */
     background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
     backdrop-filter: blur(15px); /* Efek blur */
-    position: absolute; /* Posisi absolute agar dapat diatur di bawah header */
-    width: 100%;
+    position: fixed; /* Gunakan fixed agar tetap di tempat saat scroll */
     top: 50px; /* Sesuaikan dengan tinggi header */
     left: 0;
-    z-index: 1001; /* Pastikan menu berada di bawah logo dan header */
+    width: 100%;
     height: 0; /* Mulai dengan tinggi 0 */
     overflow: hidden; /* Sembunyikan isi jika overflow */
     transition: height 0.3s ease; /* Transisi perubahan tinggi menu */
+    z-index: 999; /* Pastikan menu berada di bawah logo dan header */
 }
 
 /* Tambahan untuk navigasi aktif */
@@ -285,7 +284,7 @@
     cursor: pointer;
     color: black;
     display: flex; /* Tampilkan ikon hanya di mobile */
-    z-index: 1003; /* Pastikan ikon berada di atas header dan navigasi */
+    z-index: 1001; /* Pastikan ikon berada di atas header dan navigasi */
 }
 
 /* Styling untuk bar di ikon menu */
@@ -317,7 +316,6 @@
 #nav-icon4.open span:nth-child(1) {
     transform: rotate(45deg);
     top: 8px; /* Posisi vertikal saat X */
-    left: 0; /* Atur kiri agar tidak menggeser */
 }
 
 #nav-icon4.open span:nth-child(2) {
@@ -328,7 +326,6 @@
 #nav-icon4.open span:nth-child(3) {
     transform: rotate(-45deg);
     top: 8px; /* Posisi vertikal saat X */
-    left: 0; /* Atur kiri agar tidak menggeser */
 }
 
 /* Media query untuk tampilan mobile */
@@ -348,38 +345,22 @@
 
 <!--header-->
 <!-- Include header.html -->
-        <div id="include-header"></div>
+<div id="include-header"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'header.html', true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'header.html', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
                 document.getElementById('include-header').innerHTML = xhr.responseText;
-
-                // Setelah header dimuat, inisialisasi burger menu
-                $('#nav-icon4').click(function(){
-                    $(this).toggleClass('open');
-                    $('#nav').toggleClass('active');
-
-                    // Perubahan tinggi header
-                    if ($('#nav').hasClass('active')) {
-                        $('.header').css('height', 'calc(50px + 100vh - 50px)'); // Atur tinggi header saat menu aktif
-                    } else {
-                        $('.header').css('height', '50px'); // Kembalikan tinggi header
-                    }
-                });
-            } else {
+            } else if (xhr.readyState === 4) {
                 console.error('Failed to load header.html:', xhr.status, xhr.statusText);
             }
-        }
-    };
-    xhr.send();
-});
-    </script>
+        };
+        xhr.send();
+    });
+</script>
 <!-- end include dari header.html -->
 <!-- end header-->
 
