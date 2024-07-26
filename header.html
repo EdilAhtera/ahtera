@@ -47,22 +47,23 @@
     color: #f0f0f0; /* Warna hover link */
 }
 
-/* Tambahan untuk navigasi di mode mobile */
+//* Tambahan untuk navigasi di mode mobile */
 .navigation.active {
-display: flex;
+    display: flex;
     align-items: center;
-flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
-    backdrop-filter: blur(15px); /* Efek blur */
-    position: fixed;
+    backdrop-filter: blur(20px); /* Efek blur */
+    position: fixed; /* Posisi fixed agar tetap di tempat */
     width: 100%;
-    top: 0;
+    top: 50px; /* Atur sesuai posisi header */
     left: 0;
     z-index: 1000;
-    height: 50px; /* Atur tinggi header */
+    height: calc(100vh - 50px); /* Sesuaikan dengan tinggi viewport minus header */
     box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Tambahkan shadow jika perlu */
 }
 
 /* Icon 4 Styling */
