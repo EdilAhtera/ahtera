@@ -1,5 +1,6 @@
 
 <style>
+/* Header styling */
 .header {
     display: flex;
     align-items: center;
@@ -17,6 +18,7 @@
     box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
 }
 
+/* Logo styling */
 .logo {
     display: flex;
     align-items: center;
@@ -28,6 +30,7 @@
     width: auto; /* Jaga agar proporsi gambar tetap */
 }
 
+/* Navigation styling */
 .navigation {
     display: flex;
     gap: 20px;
@@ -46,8 +49,64 @@
     color: #f0f0f0; /* Warna hover link */
 }
 
+/* Icon styling */
+#nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
+    width: 20px; /* Lebar ikon lebih kecil */
+    height: 16px; /* Tinggi ikon lebih kecil */
+    position: relative; /* Ubah posisi menjadi relative */
+    margin: 0; /* Hapus margin untuk penempatan yang tepat */
+    cursor: pointer;
+    color: black;
+}
 
+#nav-icon1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+#nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
+    display: block;
+    position: absolute;
+    height: 4px; /* Tinggi garis lebih tipis */
+    width: 100%;
+    background: black;
+    border-radius: 4px; /* Sesuaikan dengan tinggi garis */
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+    top: 6px; /* Jarak antar garis lebih kecil */
+}
+
+#nav-icon1 span:nth-child(3) {
+    top: 12px; /* Jarak antar garis lebih kecil */
+}
+
+#nav-icon1.open span:nth-child(1) {
+    top: 6px;
+    transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-135deg);
+}
+
+/* Media query untuk tampilan mobile */
 @media (max-width: 768px) {
     .header {
         padding: 10px; /* Sesuaikan padding jika diperlukan */
@@ -69,65 +128,8 @@
     .navigation.active {
         display: flex;
     }
-/* Icon 1 */
-
-#nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
-  width: 20px; /* Lebar ikon lebih kecil */
-  height: 16px; /* Tinggi ikon lebih kecil */
-  position: absolute; /* Ubah posisi menjadi absolute */
-  top: 50%; /* Posisi di tengah vertikal */
-  right: 20px; /* Jarak dari kanan header */
-  transform: translateY(-50%) rotate(0deg); /* Posisikan dengan benar dan atur rotasi */
-  transition: .5s ease-in-out;
-  cursor: pointer;
-  color: black;
 }
 
-#nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
-  display: block;
-  position: absolute;
-  height: 4px; /* Tinggi garis lebih tipis */
-  width: 100%;
-  background: black;
-  border-radius: 4px; /* Sesuaikan dengan tinggi garis */
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: .25s ease-in-out;
-}
-
-#nav-icon1 span:nth-child(1) {
-  top: 0px;
-}
-
-#nav-icon1 span:nth-child(2) {
-  top: 6px; /* Jarak antar garis lebih kecil */
-}
-
-#nav-icon1 span:nth-child(3) {
-  top: 12px; /* Jarak antar garis lebih kecil */
-}
-
-#nav-icon1.open span:nth-child(1) {
-  top: 6px;
-  transform: rotate(135deg);
-}
-
-#nav-icon1.open span:nth-child(2) {
-  opacity: 0;
-  left: -60px;
-}
-
-#nav-icon1.open span:nth-child(3) {
-  top: 6px;
-  transform: rotate(-135deg);
-}
-
-.header {
-  position: relative; /* Pastikan header memiliki positioning relative */
-  height: 50px; /* Sesuaikan dengan tinggi header */
-  background: #f0f0f0; /* Contoh background, bisa diganti sesuai kebutuhan */
-}
 
 </style>
     <header class="header">
