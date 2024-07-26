@@ -47,7 +47,7 @@
     justify-content: center;
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
-    backdrop-filter: blur(20px); /* Efek blur */
+    backdrop-filter: blur(15px); /* Efek blur */
     position: absolute; /* Posisi absolute agar dapat diatur sesuai keperluan */
     width: 100%;
     top: 50px; /* Sesuaikan dengan tinggi header */
@@ -128,19 +128,19 @@
         position: absolute;
         top: 50px;
         left: 0;
-        background: rgba(255, 255, 255, 0.9); /* Background solid buat fallback */
-        -webkit-backdrop-filter: blur(20px); /* Efek blur untuk Safari */
-        backdrop-filter: blur(20px); /* Efek blur */
+        background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+        -webkit-backdrop-filter: blur(15px); /* Efek blur untuk Safari */
+        backdrop-filter: blur(15px); /* Efek blur */
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         align-items: center; /* Menyusun item di tengah-tengah secara horizontal */
     }
 
     .navigation.active {
         display: flex;
-        -webkit-backdrop-filter: blur(20px); /* Efek blur untuk Safari */
-        backdrop-filter: blur(20px); /* Efek blur */
-        -moz-backdrop-filter: blur(20px); /* Untuk browser Firefox */
-        -ms-backdrop-filter: blur(20px); /* Untuk browser Internet Explorer */
+        -webkit-backdrop-filter: blur(15px); /* Efek blur untuk Safari */
+        backdrop-filter: blur(15px); /* Efek blur */
+        -moz-backdrop-filter: blur(15px); /* Untuk browser Firefox */
+        -ms-backdrop-filter: blur(15px); /* Untuk browser Internet Explorer */
     }
 
     .navigation a {
