@@ -181,8 +181,8 @@
 <body>
 
 <!--header-->
-<!-- include dari header.html -->
-<div id="include-header"></div>
+<!-- Include header.html -->
+    <div id="include-header"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -192,6 +192,12 @@
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
                         document.getElementById('include-header').innerHTML = xhr.responseText;
+
+                        // Setelah header dimuat, inisialisasi burger menu
+                        $('#nav-icon1').click(function(){
+                            $(this).toggleClass('open');
+                            $('#nav').toggleClass('active');
+                        });
                     } else {
                         console.error('Failed to load header.html:', xhr.status, xhr.statusText);
                     }
