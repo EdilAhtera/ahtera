@@ -14,6 +14,7 @@
     z-index: 1000;
     height: 50px; /* Atur tinggi header */
     box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
+    transition: height 0.3s ease; /* Transisi perubahan tinggi header */
 }
 
 /* Logo styling */
@@ -34,20 +35,11 @@
     gap: 20px;
     flex-grow: 1;
     justify-content: center; /* Pusatkan menu navigasi secara horizontal */
+    background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+    backdrop-filter: blur(15px); /* Efek blur */
 }
 
-.navigation a {
-    text-decoration: none;
-    color: #000000; /* Warna link */
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.navigation a:hover {
-    color: #f0f0f0; /* Warna hover link */
-}
-
-//* Tambahan untuk navigasi di mode mobile */
+/* Tambahan untuk navigasi di mode mobile */
 .navigation.active {
     display: flex;
     align-items: center;
@@ -56,14 +48,16 @@
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
     backdrop-filter: blur(20px); /* Efek blur */
-    position: fixed; /* Posisi fixed agar tetap di tempat */
+    position: absolute; /* Posisi absolute agar dapat diatur sesuai keperluan */
     width: 100%;
-    top: 50px; /* Atur sesuai posisi header */
+    top: 50px; /* Sesuaikan dengan tinggi header */
     left: 0;
     z-index: 1000;
     height: calc(100vh - 50px); /* Sesuaikan dengan tinggi viewport minus header */
     box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Tambahkan shadow jika perlu */
+    transition: height 0.3s ease; /* Transisi perubahan tinggi menu */
+    overflow-y: auto; /* Untuk scroll jika isi menu melebihi tinggi */
 }
 
 /* Icon 4 Styling */
@@ -143,10 +137,10 @@
 
     .navigation.active {
         display: flex;
-    	-webkit-backdrop-filter: blur(20px); /* Efek blur untuk Safari */
-    	backdrop-filter: blur(20px); /* Efek blur */
-    	-moz-backdrop-filter: blur(20px); /* Untuk browser Firefox */
-    	-ms-backdrop-filter: blur(20px); /* Untuk browser Internet Explorer */
+        -webkit-backdrop-filter: blur(20px); /* Efek blur untuk Safari */
+        backdrop-filter: blur(20px); /* Efek blur */
+        -moz-backdrop-filter: blur(20px); /* Untuk browser Firefox */
+        -ms-backdrop-filter: blur(20px); /* Untuk browser Internet Explorer */
     }
 
     .navigation a {
@@ -159,7 +153,6 @@
         display: flex; /* Tampilkan ikon hanya di mobile */
     }
 }
-
 </style>
     <header class="header">
         <a href="https://example.com" class="logo">
@@ -179,10 +172,15 @@
     </header>
 
 
-    <script>
-$(document).ready(function(){
-	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-		$(this).toggleClass('open');
-	});
+  $(document).ready(function(){
+    $('#nav-icon4').click(function(){
+        $(this).toggleClass('open');
+        $('.navigation').toggleClass('active');
+        // Toggle height dari header jika perlu
+        if ($('.navigation').hasClass('active')) {
+            $('.header').css('height', 'calc(50px + 100vh - 50px)'); // Adjust height jika perlu
+        } else {
+            $('.header').css('height', '50px'); // Kembalikan tinggi header
+        }
+    });
 });
-</script>
