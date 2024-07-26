@@ -449,6 +449,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- script pagination-->
 <script>
+const cardContainer = document.querySelector('.card-container');
+const cards = Array.from(document.querySelectorAll('.card'));
+
+// Menyimpan index card saat ini
+let currentIndex = 0;
+
 // Fungsi untuk menggeser ke card tertentu
 function scrollToCard(index) {
   if (index >= 0 && index < cards.length) {
