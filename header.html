@@ -137,15 +137,18 @@
     </header>
 
 
-  $(document).ready(function(){
+  <script>
+$(document).ready(function(){
     $('#nav-icon4').click(function(){
         $(this).toggleClass('open');
         $('.navigation').toggleClass('active');
-        // Toggle height dari header jika perlu
+
+        // Perubahan tinggi header
         if ($('.navigation').hasClass('active')) {
-            $('.header').css('height', 'calc(50px + 100vh - 50px)'); // Adjust height jika perlu
+            $('.header').css('height', 'calc(50px + 100vh - 50px)'); // Atur tinggi header saat menu aktif
         } else {
             $('.header').css('height', '50px'); // Kembalikan tinggi header
         }
     });
 });
+</script>
