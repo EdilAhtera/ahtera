@@ -1,5 +1,6 @@
 <style>
 /* Header styling */
+/* Header styling */
 .header {
     display: flex;
     align-items: center;
@@ -48,61 +49,59 @@
     color: #f0f0f0; /* Warna hover link */
 }
 
-/* Icon styling */
-#nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
-    width: 20px; /* Lebar ikon lebih kecil */
-    height: 16px; /* Tinggi ikon lebih kecil */
-    position: relative; /* Ubah posisi menjadi relative */
+/* Icon 4 Styling */
+#nav-icon4 {
+    width: 20px; /* Lebar ikon */
+    height: 20px; /* Tinggi ikon, sesuai dengan tinggi header */
+    position: absolute; /* Pastikan posisi absolute agar bisa diposisikan relatif terhadap parent */
+    top: 50%; /* Posisi vertikal tengah */
+    right: 20px; /* Jarak dari kanan header */
+    transform: translateY(-50%); /* Posisikan dengan benar di tengah secara vertikal */
     cursor: pointer;
     color: black;
-    display: none; /* Sembunyikan ikon di mode desktop */
+    display: none; /* Sembunyikan ikon di desktop */
 }
 
-#nav-icon1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
+#nav-icon4 span {
     display: block;
     position: absolute;
-    height: 4px; /* Tinggi garis lebih tipis */
+    height: 3px; /* Tinggi garis lebih tipis */
     width: 100%;
     background: black;
-    border-radius: 4px; /* Sesuaikan dengan tinggi garis */
+    border-radius: 3px; /* Sesuaikan dengan tinggi garis */
     opacity: 1;
     left: 0;
-    transform: rotate(0deg);
     transition: .25s ease-in-out;
+    transform-origin: center; /* Atur titik asal transformasi ke tengah */
 }
 
-#nav-icon1 span:nth-child(1) {
+#nav-icon4 span:nth-child(1) {
     top: 0px;
 }
 
-#nav-icon1 span:nth-child(2) {
-    top: 6px; /* Jarak antar garis lebih kecil */
+#nav-icon4 span:nth-child(2) {
+    top: 8px; /* Jarak antar garis */
 }
 
-#nav-icon1 span:nth-child(3) {
-    top: 12px; /* Jarak antar garis lebih kecil */
+#nav-icon4 span:nth-child(3) {
+    top: 16px; /* Jarak antar garis */
 }
 
-#nav-icon1.open span:nth-child(1) {
-    top: 6px;
-    transform: rotate(135deg);
+#nav-icon4.open span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px; /* Posisi vertikal saat X */
+    left: 0; /* Atur kiri agar tidak menggeser */
 }
 
-#nav-icon1.open span:nth-child(2) {
+#nav-icon4.open span:nth-child(2) {
+    width: 0%;
     opacity: 0;
-    left: -60px;
 }
 
-#nav-icon1.open span:nth-child(3) {
-    top: 6px;
-    transform: rotate(-135deg);
+#nav-icon4.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px; /* Posisi vertikal saat X */
+    left: 0; /* Atur kiri agar tidak menggeser */
 }
 
 /* Media query untuk tampilan mobile */
@@ -129,14 +128,11 @@
     }
 
     /* Ikon menu di mobile */
-    #nav-icon1 {
+    #nav-icon4 {
         display: flex; /* Tampilkan ikon hanya di mobile */
-        position: absolute;
-        top: 50%; /* Posisi vertikal tengah */
-        right: 20px; /* Jarak dari kanan */
-        transform: translateY(-50%); /* Posisikan dengan benar di tengah secara vertikal */
     }
 }
+
 
 </style>
     <header class="header">
@@ -149,7 +145,7 @@
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
-            <div id="nav-icon1">
+            <div id="nav-icon4">
               <span></span>
               <span></span>
               <span></span>
