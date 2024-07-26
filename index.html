@@ -586,6 +586,15 @@ $(document).ready(function(){
     });
 });
 </script>
-
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navIcon = document.getElementById('nav-icon4');
+            if (navIcon) {
+                navIcon.addEventListener('click', function() {
+                    navIcon.classList.toggle('open');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
