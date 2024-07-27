@@ -758,9 +758,9 @@
 <!-- end footer-->
 
 <!-- script pagination-->
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Mendapatkan elemen container dan tombol untuk Developer dan Designer
   const cardContainerDeveloper = document.querySelector("#card-container-developer .card-container");
   const cardContainerDesigner = document.querySelector("#card-container-designer .card-container");
   
@@ -769,6 +769,24 @@ document.addEventListener("DOMContentLoaded", function() {
   const prevButtonDesigner = document.getElementById("prevButton-designer");
   const nextButtonDesigner = document.getElementById("nextButton-designer");
   
+  // Fungsi untuk memperbarui visibilitas tombol
+  function updateButtons(container, prevButton, nextButton) {
+    // Cek apakah container sudah di scroll ke kiri paling jauh
+    if (container.scrollLeft === 0) {
+      prevButton.style.display = 'none'; // Sembunyikan tombol previous jika di awal
+    } else {
+      prevButton.style.display = 'flex'; // Tampilkan tombol previous jika tidak di awal
+    }
+
+    // Cek apakah container sudah di scroll ke kanan paling jauh
+    if (container.scrollWidth - container.scrollLeft === container.clientWidth) {
+      nextButton.style.display = 'none'; // Sembunyikan tombol next jika di akhir
+    } else {
+      nextButton.style.display = 'flex'; // Tampilkan tombol next jika tidak di akhir
+    }
+  }
+  
+  // Menambahkan event listener untuk tombol navigasi
   prevButtonDeveloper.addEventListener("click", function() {
     cardContainerDeveloper.scrollBy({
       left: -cardContainerDeveloper.clientWidth,
@@ -796,8 +814,27 @@ document.addEventListener("DOMContentLoaded", function() {
       behavior: 'smooth'
     });
   });
+
+  // Menambahkan event listener untuk scroll dan resize
+  cardContainerDeveloper.addEventListener("scroll", function() {
+    updateButtons(cardContainerDeveloper, prevButtonDeveloper, nextButtonDeveloper);
+  });
+
+  cardContainerDesigner.addEventListener("scroll", function() {
+    updateButtons(cardContainerDesigner, prevButtonDesigner, nextButtonDesigner);
+  });
+
+  window.addEventListener("resize", function() {
+    updateButtons(cardContainerDeveloper, prevButtonDeveloper, nextButtonDeveloper);
+    updateButtons(cardContainerDesigner, prevButtonDesigner, nextButtonDesigner);
+  });
+
+  // Panggil fungsi untuk mengatur visibilitas tombol pada pemuatan awal
+  updateButtons(cardContainerDeveloper, prevButtonDeveloper, nextButtonDeveloper);
+  updateButtons(cardContainerDesigner, prevButtonDesigner, nextButtonDesigner);
 });
 </script>
+
 
   <!--header mbl-->
   
