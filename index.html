@@ -218,128 +218,163 @@
 
 
 /* CSS Inline yang diperlukan */
-/* Header styling */
-/* Header styling */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
+ .header1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.8); /* Transparan dengan efek kaca blur */
+            backdrop-filter: blur(15px); /* Efek blur */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Pastikan header berada di atas */
+            height: 50px; /* Atur tinggi default header */
+            box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
+            transition: height 0.3s ease; /* Transisi perubahan tinggi header */
+        }
+
+       /* Header 2 styling */
+.header2 {
+    display: none;
+    flex-direction: column;
+    align-items: center; /* Pusatkan item secara horizontal */
+    justify-content: center; /* Pusatkan item secara vertikal */
+    background: rgba(255, 255, 255, 0.8); /* Transparan dengan efek kaca blur */
     backdrop-filter: blur(15px); /* Efek blur */
-    position: fixed;
-    width: 100%;
-    top: 0;
+    position: fixed; /* Gunakan fixed agar tetap di tempat saat scroll */
+    top: 50px; /* Sesuaikan dengan tinggi header1 */
     left: 0;
-    z-index: 1000; /* Pastikan header berada di atas */
-    height: 50px; /* Atur tinggi default header */
-    box-sizing: border-box; /* Menghitung padding dan border dalam lebar dan tinggi */
-    transition: height 0.3s ease; /* Transisi perubahan tinggi header */
+    width: 100%;
+    height: calc(100vh - 50px); /* Tinggi header2 saat aktif */
+    overflow: hidden; /* Sembunyikan isi jika overflow */
+    transition: height 0.3s ease; /* Transisi perubahan tinggi menu */
+    z-index: 999; /* Pastikan menu berada di bawah logo dan header1 */
 }
-
-/* Logo styling */
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none; /* Menghilangkan garis bawah pada link logo */
-    z-index: 1001; /* Pastikan logo berada di atas header dan navigasi */
-}
-
-/* Logo image */
-.logo img {
-    height: 50px; /* Sesuaikan dengan tinggi header */
-    width: auto; /* Jaga agar proporsi gambar tetap */
-}
-
-/* Navigation styling */
-.navigation {
+    /* Navigation styling untuk header2 */
+.header2 .navigation {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: center; /* Pusatkan menu navigasi secara horizontal */
-    background: rgba(255, 255, 255, 0.1); /* Transparan dengan efek kaca blur */
-    backdrop-filter: blur(15px); /* Efek blur */
-    position: fixed; /* Gunakan fixed agar tetap di tempat saat scroll */
-    top: 50px; /* Sesuaikan dengan tinggi header */
-    left: 0;
-    width: 100%;
-    height: 0; /* Mulai dengan tinggi 0 */
-    overflow: hidden; /* Sembunyikan isi jika overflow */
-    transition: height 0.3s ease; /* Transisi perubahan tinggi menu */
-    z-index: 999; /* Pastikan menu berada di bawah logo dan header */
+    align-items: center; /* Pusatkan item navigasi secara horizontal */
+    width: 100%; /* Lebar penuh */
 }
 
-/* Tambahan untuk navigasi aktif */
-.navigation.active {
-    height: calc(100vh - 50px); /* Atur tinggi menu saat aktif */
-}
+        /* Show header2 when active */
+        .header2.active {
+            display: flex;
+        }
 
-/* Icon 4 Styling */
-#nav-icon4 {
-    width: 20px; /* Lebar ikon */
-    height: 20px; /* Tinggi ikon, sesuai dengan tinggi header */
-    position: absolute; /* Pastikan posisi absolute agar bisa diposisikan relatif terhadap parent */
-    top: 50%; /* Posisikan vertikal tengah */
-    right: 20px; /* Jarak dari kanan header */
-    transform: translateY(-50%); /* Posisikan dengan benar di tengah secara vertikal */
-    cursor: pointer;
-    color: black;
-    display: flex; /* Tampilkan ikon hanya di mobile */
-    z-index: 1002; /* Pastikan ikon berada di atas header dan navigasi */
-}
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none; /* Menghilangkan garis bawah pada link logo */
+        }
 
-/* Styling untuk bar di ikon menu */
-#nav-icon4 span {
-    display: block;
-    position: absolute;
-    height: 3px; /* Tinggi garis lebih tipis */
-    width: 100%;
-    background: black;
-    border-radius: 3px; /* Sesuaikan dengan tinggi garis */
-    opacity: 1;
-    left: 0;
-    transition: .25s ease-in-out;
-    transform-origin: center; /* Atur titik asal transformasi ke tengah */
-}
+        .logo img {
+            height: 50px; /* Sesuaikan dengan tinggi header */
+            width: auto; /* Jaga agar proporsi gambar tetap */
+        }
 
-#nav-icon4 span:nth-child(1) {
-    top: 0px;
-}
+        /* Navigation styling */
+        .navigation {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center; /* Pusatkan menu navigasi secara horizontal */
+        }
 
-#nav-icon4 span:nth-child(2) {
-    top: 8px; /* Jarak antar garis */
-}
+        .navigation-desktop {
+            display: none; /* Sembunyikan di mobile */
+            flex-grow: 1; /* Agar menu bisa tumbuh */
+        }
 
-#nav-icon4 span:nth-child(3) {
-    top: 16px; /* Jarak antar garis */
-}
+        /* Icon 4 Styling */
+        #nav-icon4 {
+            width: 20px; /* Lebar ikon */
+            height: 20px; /* Tinggi ikon, sesuai dengan tinggi header */
+            position: absolute; /* Pastikan posisi absolute agar bisa diposisikan relatif terhadap parent */
+            top: 50%; /* Posisikan vertikal tengah */
+            right: 20px; /* Jarak dari kanan header */
+            transform: translateY(-50%); /* Posisikan dengan benar di tengah secara vertikal */
+            cursor: pointer;
+            color: black;
+            display: none; /* Sembunyikan ikon di desktop */
+        }
 
-#nav-icon4.open span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 8px; /* Posisi vertikal saat X */
-}
+        /* Styling untuk bar di ikon menu */
+        #nav-icon4 span {
+            display: block;
+            position: absolute;
+            height: 3px; /* Tinggi garis lebih tipis */
+            width: 100%;
+            background: black;
+            border-radius: 3px; /* Sesuaikan dengan tinggi garis */
+            opacity: 1;
+            left: 0;
+            transition: .25s ease-in-out;
+            transform-origin: center; /* Atur titik asal transformasi ke tengah */
+        }
 
-#nav-icon4.open span:nth-child(2) {
-    width: 0%;
-    opacity: 0;
-}
+        #nav-icon4 span:nth-child(1) {
+            top: 0px;
+        }
 
-#nav-icon4.open span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 8px; /* Posisi vertikal saat X */
-}
+        #nav-icon4 span:nth-child(2) {
+            top: 8px; /* Jarak antar garis */
+        }
 
-/* Media query untuk tampilan mobile */
-@media (max-width: 768px) {
-    .header {
-        padding: 10px; /* Sesuaikan padding jika diperlukan */
-    }
+        #nav-icon4 span:nth-child(3) {
+            top: 16px; /* Jarak antar garis */
+        }
 
-    /* Ikon menu di mobile */
-    #nav-icon4 {
-        display: flex; /* Tampilkan ikon hanya di mobile */
-    }
-}
+        #nav-icon4.open span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px; /* Posisi vertikal saat X */
+        }
+
+        #nav-icon4.open span:nth-child(2) {
+            width: 0%;
+            opacity: 0;
+        }
+
+        #nav-icon4.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px; /* Posisi vertikal saat X */
+        }
+
+        /* Media query untuk tampilan desktop */
+        @media (min-width: 769px) {
+            .navigation-desktop {
+                display: flex; /* Tampilkan menu di desktop */
+                justify-content: center; /* Pusatkan menu secara horizontal */
+            }
+
+            .header2 {
+                display: none; /* Sembunyikan header2 di desktop */
+            }
+
+            #nav-icon4 {
+                display: none; /* Sembunyikan ikon di desktop */
+            }
+        }
+
+        /* Media query untuk tampilan mobile */
+        @media (max-width: 768px) {
+            #nav-icon4 {
+                display: flex; /* Tampilkan ikon hanya di mobile */
+            }
+
+            .header2 {
+                display: none; /* Sembunyikan header2 secara default */
+            }
+
+            .header2.active {
+                display: flex; /* Tampilkan header2 saat active */
+            }
+        }
   </style>
 </head>
 <body>
@@ -348,20 +383,29 @@
 <!-- Include header.html -->
 <div id="include-header"></div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'header.html', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('include-header').innerHTML = xhr.responseText;
-            } else if (xhr.readyState === 4) {
-                console.error('Failed to load header.html:', xhr.status, xhr.statusText);
-            }
-        };
-        xhr.send();
-    });
-</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'header.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('include-header').innerHTML = xhr.responseText;
+
+                        // Setelah header dimuat, inisialisasi burger menu
+                        $('#nav-icon4').click(function(){
+                            $(this).toggleClass('open');
+                            $('.header2').toggleClass('active');
+                        });
+                    } else {
+                        console.error('Failed to load header.html:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
 <!-- end include dari header.html -->
 <!-- end header-->
 
