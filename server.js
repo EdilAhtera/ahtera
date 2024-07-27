@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Ganti dengan token bot Telegram dan chat ID-mu
-const TELEGRAM_BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+const TELEGRAM_BOT_TOKEN = '6995475221:AAGFJo_2TdaqRsxE7O9tr5zSw2xXDMOI2t4';
 const CHAT_ID = '6617901436';
 
 app.use(bodyParser.json());
