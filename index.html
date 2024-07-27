@@ -152,7 +152,7 @@
   font-size: 36px; /* Ukuran font judul */
   font-weight: bold; /* Menebalkan font judul */
   margin-bottom: 20px; /* Jarak di bawah judul */
-  text-align: center; /* Meratakan teks ke tengah */
+  text-align: left; /* Meratakan teks ke tengah */
 }
 
 .card {
@@ -202,7 +202,7 @@
   padding: 6px;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: right;
   justify-content: center;
 }
 
@@ -618,7 +618,7 @@
 <div class="container-card" id="card-container-designer">
   <h1 class="container-title">For Designer</h1>
 
-  <div class="pagination-container" style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+  <div class="pagination-container" style="display: flex; justify-content: center; align-items: right; padding: 10px;">
     <button id="prevButton-designer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 6px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
@@ -708,24 +708,6 @@
   </main>
 
 
-
-<!-- header js -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const searchToggle = document.querySelector('.search-toggle');
-  const searchContainer = document.querySelector('.search-container');
-
-  searchToggle.addEventListener('click', () => {
-    searchContainer.classList.toggle('search-active');
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!searchContainer.contains(event.target) && !searchToggle.contains(event.target)) {
-      searchContainer.classList.remove('search-active');
-    }
-  });
-});
-</script>
 <!--footer-->
 <!-- include dari footer.html -->
 <div id="include-footer"></div>
