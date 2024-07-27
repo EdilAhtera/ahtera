@@ -356,25 +356,36 @@
             top: 8px; /* Posisi vertikal saat X */
         }
 
-      /* Media query untuk desktop */
-@media (min-width: 769px) {
-    .header2 {
-        display: none; /* Sembunyikan header2 di desktop */
-    }
-    .header1 {
-        display: flex; /* Tampilkan header1 di desktop */
-    }
-}
+         /* Media query untuk tampilan desktop */
+        @media (min-width: 769px) {
+            .navigation-desktop {
+                display: flex; /* Tampilkan menu di desktop */
+                justify-content: center; /* Pusatkan menu secara horizontal */
+            }
 
-/* Media query untuk mobile */
-@media (max-width: 768px) {
-    .header1 {
-        display: none; /* Sembunyikan header1 di mobile */
-    }
-    .header2 {
-        display: flex; /* Tampilkan header2 di mobile */
-    }
-}
+            .header2 {
+                display: none; /* Sembunyikan header2 di desktop */
+            }
+
+            #nav-icon4 {
+                display: none; /* Sembunyikan ikon di desktop */
+            }
+        }
+
+        /* Media query untuk tampilan mobile */
+        @media (max-width: 768px) {
+            #nav-icon4 {
+                display: flex; /* Tampilkan ikon hanya di mobile */
+            }
+
+            .header2 {
+                display: none; /* Sembunyikan header2 secara default */
+            }
+
+            .header2.active {
+                display: flex; /* Tampilkan header2 saat active */
+            }
+        }
   </style>
 </head>
 <body>
