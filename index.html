@@ -139,24 +139,14 @@
   scrollbar-width: none;  /* Firefox */
 }
 .texthead {
-  display: flex; /* Menggunakan Flexbox */
+  display: flex; /* Menggunakan Flexbox untuk penataan */
   justify-content: space-between; /* Menyebar elemen ke kiri dan kanan */
-  align-items: center; /* Vertikal tengah */
-  padding: 10px; /* Padding di sekitar konten */
+  align-items: center; /* Pusatkan elemen secara vertikal */
+  padding: 10px 20px; /* Padding di sekitar konten */
   max-width: 90%;
   margin: auto;
-  gap: 6px; /* Jarak antar tombol */
 }
-    .texthead button {
-  display: flex;
-  align-items: center; /* Pusatkan ikon di tengah tombol */
-  justify-content: center; /* Pusatkan ikon secara horizontal */
-  background: none;
-  border: 2px solid #000;
-  border-radius: 50%;
-  padding: 6px;
-  cursor: pointer;
-}
+
 .container-card {
   margin: auto;
   padding:auto;
@@ -212,15 +202,30 @@
   font-size: 16px; /* Sesuaikan ukuran font deskripsi */
 }
 
+.pagination-container {
+  display: flex; /* Menyusun tombol secara horizontal */
+  align-items: center; /* Pusatkan tombol secara vertikal */
+  gap: 6px; /* Jarak antar tombol */
+}
+.pagination-container button {
+  display: flex; /* Menggunakan Flexbox di dalam tombol */
+  align-items: center; /* Pusatkan ikon secara vertikal dalam tombol */
+  justify-content: center; /* Pusatkan ikon secara horizontal dalam tombol */
+  background: none; /* Tidak ada latar belakang */
+  border: 2px solid #000; /* Border tombol */
+  border-radius: 50%; /* Tombol berbentuk lingkaran */
+  padding: 6px; /* Padding di sekitar ikon */
+  cursor: pointer; /* Tampilkan kursor pointer saat hover */
+}
 .pagination-button {
-  background: none;
-  border: 2px solid #000;
-  border-radius: 50%;
-  padding: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: right;
-  justify-content: right;
+  background: none; /* Tanpa latar belakang */
+  border: 2px solid #000; /* Border tombol */
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+  padding: 6px; /* Padding di sekitar ikon */
+  cursor: pointer; /* Menampilkan kursor pointer saat hover */
+  display: flex; /* Menggunakan Flexbox */
+  align-items: center; /* Pusatkan ikon secara vertikal */
+  justify-content: center; /* Pusatkan ikon secara horizontal */
 }
 
 /* end card 1 */
