@@ -237,7 +237,7 @@
 
        /* Header 2 styling */
 .header2 {
-    display: none;
+    display: none; /* Default hidden */
     flex-direction: column;
     align-items: center; /* Pusatkan item secara horizontal */
     justify-content: center; /* Pusatkan item secara vertikal */
@@ -252,13 +252,24 @@
     transition: height 0.3s ease; /* Transisi perubahan tinggi menu */
     z-index: 999; /* Pastikan menu berada di bawah logo dan header1 */
 }
-    /* Navigation styling untuk header2 */
+    /* Navigation styling untuk mobile di header2 */
 .header2 .navigation {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center; /* Pusatkan item navigasi secara horizontal */
     width: 100%; /* Lebar penuh */
+    color: black; /* Warna teks hitam */
+}
+
+.header2 .navigation a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    color: black; /* Warna teks hitam */
+    font-size: 18px; /* Sesuaikan ukuran font */
+}
+
+.header2 .navigation a:hover {
+    color: gray; /* Warna teks saat hover */
 }
 
         /* Show header2 when active */
@@ -345,36 +356,25 @@
             top: 8px; /* Posisi vertikal saat X */
         }
 
-        /* Media query untuk tampilan desktop */
-        @media (min-width: 769px) {
-            .navigation-desktop {
-                display: flex; /* Tampilkan menu di desktop */
-                justify-content: center; /* Pusatkan menu secara horizontal */
-            }
+      /* Media query untuk desktop */
+@media (min-width: 769px) {
+    .header2 {
+        display: none; /* Sembunyikan header2 di desktop */
+    }
+    .header1 {
+        display: flex; /* Tampilkan header1 di desktop */
+    }
+}
 
-            .header2 {
-                display: none; /* Sembunyikan header2 di desktop */
-            }
-
-            #nav-icon4 {
-                display: none; /* Sembunyikan ikon di desktop */
-            }
-        }
-
-        /* Media query untuk tampilan mobile */
-        @media (max-width: 768px) {
-            #nav-icon4 {
-                display: flex; /* Tampilkan ikon hanya di mobile */
-            }
-
-            .header2 {
-                display: none; /* Sembunyikan header2 secara default */
-            }
-
-            .header2.active {
-                display: flex; /* Tampilkan header2 saat active */
-            }
-        }
+/* Media query untuk mobile */
+@media (max-width: 768px) {
+    .header1 {
+        display: none; /* Sembunyikan header1 di mobile */
+    }
+    .header2 {
+        display: flex; /* Tampilkan header2 di mobile */
+    }
+}
   </style>
 </head>
 <body>
