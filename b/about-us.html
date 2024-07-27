@@ -24,7 +24,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'header.html', true);
+            xhr.open('GET', '../header.html', true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
@@ -68,7 +68,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'footer.html', true);
+        xhr.open('GET', '../footer.html', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
