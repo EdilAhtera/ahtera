@@ -139,22 +139,26 @@
   scrollbar-width: none;  /* Firefox */
 }
 .container-card {
-  margin: auto;
-  padding: auto;
+  display: flex; /* Menggunakan Flexbox */
+  justify-content: space-between; /* Menyebar elemen ke kiri dan kanan */
+  align-items: center; /* Vertikal tengah */
+  padding: 10px; /* Padding di sekitar konten */
   max-width: 90%;
-  text-align: center;
-  justify-content: center;
-  padding-bottom: 10px;
-  padding-top:10px;
-  
+  margin: auto;
+}
 }
 .container-title {
   font-size: 36px; /* Ukuran font judul */
   font-weight: bold; /* Menebalkan font judul */
-  margin-bottom: 20px; /* Jarak di bawah judul */
-  text-align: left; /* Meratakan teks ke tengah */
+  margin: 0; /* Menghapus margin default */
+  text-align: left; /* Meratakan teks ke kiri */
 }
 
+    .pagination-container {
+  display: flex;
+  gap: 6px; /* Jarak antar tombol */
+}
+    
 .card {
   flex: 0 0 auto; /* Menghindari card untuk menyusut dan memungkinkan mereka tampil dengan lebar tetap */
   position: relative;
@@ -524,8 +528,8 @@
 <div class="container-card" id="card-container-developer">
   <h1 class="container-title">For Developer</h1>
 
-  <div class="pagination-container" style="display: flex; justify-content: right; align-items: right; padding: 10px;">
-    <button id="prevButton-developer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 6px;">
+  <div class="pagination-container">
+    <button id="prevButton-developer" style="background: none; border: 2px solid #000; border-radius: 50%; padding: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
       </svg>
@@ -536,6 +540,8 @@
       </svg>
     </button>
   </div>
+</div>
+
   
   <div class="card-container" style="display: flex; overflow-x: auto;">
     <!-- card 1 -->
