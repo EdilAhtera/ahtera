@@ -82,7 +82,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
     const formData = new FormData(this);
 
-    fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec', { // Ganti dengan URL server Google Apps Script-mu
+    fetch('https://script.google.com/macros/s/AKfycbzPnOqz11J7NXQwM6VA0K5io7DUcRTgeQ6i1Hs1LVqf9mVbCJrKSdKHO-1vQTUrbtQl/exec', { // Ganti dengan URL server Google Apps Script-mu
         method: 'POST',
         body: new URLSearchParams(formData)
     })
