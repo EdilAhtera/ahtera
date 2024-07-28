@@ -219,181 +219,146 @@
 }
 
 
-    /* Styling buat cardpairing*/
-    .cardpairing {
-      display: none;
-      background-color: #f4f4f4;
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
-z-index: 1000;
-position: fixed;
-    }
+         /* Style untuk pairingbox */
+        .pairingbox {
+  -webkit-user-select: none; /* Chrome, Safari, dan Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* CSS3 */
+  /* Menghilangkan konteks menu salin pada elemen */
+  pointer-events: none;
+            position: fixed;
+            bottom: 10px; /* Jarak dari bawah layar */
+            left: 10px; /* Jarak dari tepi kiri layar */
+            right: 10px; /* Jarak dari tepi kanan layar */
+            width: calc(100% - 20px); /* Lebar pairingbox dengan jarak kiri dan kanan */
+            height: 50vh;
+            background: #fff;
+            border-radius: 25px; /* Radius sudut atas dan bawah */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px; /* Padding di dalam pairingbox */
+            box-sizing: border-box; /* Memastikan padding termasuk dalam lebar total */
+            justify-content: flex-end; /* Menempatkan elemen di bagian bawah */
+            opacity: 0; /* Mulai dengan opacity 0 untuk animasi kemunculan */
+            transform: translateY(20px); /* Mulai dengan posisi sedikit lebih rendah untuk animasi kemunculan */
+            animation: slideIn 0.5s forwards; /* Menambahkan animasi kemunculan */
+            animation-delay: 1s; /* Penundaan sebelum animasi dimulai */
+        }
 
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      transition: opacity 1s;
-      display: none;
-      z-index: 999;
-    }
+        .pairingbox.hidden {
+            display: none; /* Menyembunyikan popup */
+        }
 
-    .overlay.visible {
-      display: block;
-      opacity: 1;
-    }
+        .pairingbox h1 {
+            font-size: 24px;
+            padding: 0;
+            text-align: center;
+        }
 
-    .card-pairing {
-      width: 90%;
-      max-width: 500px;
-      height: 50vh;
-      padding: 20px;
-      background: #fff;
-      border-radius: 30px 30px 0 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transform: translateY(100vh);
-      animation: slideUp 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      z-index: 1000;
-      user-select: none; /* Disable text selection */
-      -webkit-user-select: none; /* Safari */
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-      user-select: none; /* Non-prefixed version, supported by Chrome, Opera */
-      -webkit-tap-highlight-color: transparent; /* Disable tap highlight on touch devices */
-    }
+        .pairingbox p {
+            font-size: 16px;
+            margin: 0 0 10px 0; /* Jarak di atas tombol */
+            padding: 0;
+            text-align: center;
+            color: gray;
+        }
 
-    .card-pairing::before {
-      content: "";
-      display: block;
-      width: 25%;
-      height: 5px;
-      background: #D3D3D3 ;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 5px;
-    }
+        .button-pair {
+            display: flex;
+            gap: 10px; /* Jarak antara tombol */
+            width: 100%; /* Lebar kontainer tombol sesuai lebar pairingbox */
+            justify-content: center; /* Memusatkan tombol */
+            margin-top: 20px; /* Jarak atas untuk memberi ruang dengan deskripsi */
+        }
 
-    .card-container-pair {
-      perspective: 1000px;
-      width: 180px;
-      height: 120px;
-      margin: auto 0 20px 0;
-    }
+        .pairingbox .action-button {
+            padding: 15px; /* Naikin padding untuk tinggi tombol */
+            background: #fff; /* Warna tombol putih */
+            color: #000; /* Warna teks tombol hitam untuk kontras */
+            text-decoration: none;
+            border-radius: 8px; /* Radius tombol lebih sedikit membulat */
+            text-align: center;
+            width: 45%; /* Lebar tombol 45% dari lebar kontainer */
+            min-width: 120px; /* Lebar minimum tombol */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc; /* Garis border abu-abu */
+            box-shadow: none; /* Menghilangkan bayangan tombol */
+        }
 
-    .knama {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: flip 30s infinite;
-      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
+        /* Style untuk businesscard */
+        .businesscard {
+            width: 150px; /* Lebar card */
+            height: 100px; /* Tinggi card */
+            margin: 20px 0; /* Jarak atas dan bawah card */
+            perspective: 1200px; /* Menambahkan perspektif untuk efek 3D */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .knama div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 10px;
-    }
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: flip 5s infinite; /* Menambahkan animasi flip otomatis */
+            border-radius: 10px; /* Radius untuk card inner */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+            transform: rotateX(10deg) rotateY(10deg); /* Kemiringan awal */
+        }
 
-    .front {
-      background-color: #fff;
-    }
+        @keyframes flip {
+            0% {
+                transform: rotateY(10deg) rotateX(10deg); /* Memulai dari posisi normal dengan kemiringan */
+            }
+            25% {
+                transform: rotateY(100deg) rotateX(10deg); /* Putaran cepat ke 100 derajat dengan kemiringan */
+            }
+            50% {
+                transform: rotateY(180deg) rotateX(10deg); /* Memutar ke 180 derajat dengan kemiringan */
+            }
+            75% {
+                transform: rotateY(210deg) rotateX(10deg); /* Putaran cepat ke 210 derajat dengan kemiringan */
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(10deg); /* Memutar penuh kembali ke posisi awal dengan kemiringan */
+            }
+        }
 
-    .front img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .back {
-      background-color: #f8f8f8;
-      transform: rotateY(180deg);
-    }
+        .card-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px; /* Radius yang sama untuk sisi depan dan belakang */
+        }
 
-    .back img {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-    }
+        .card-front {
+            background: url('img/ahtera_20240728_212614_0000.png') no-repeat center center; /* Ganti dengan URL gambar depan */
+            background-size: cover;
+        }
 
-    h2 {
-      margin: 20px 0 5px 0;
-    }
-
-    p {
-      margin: 5px 0 20px 0;
-    }
-
-    .okay-button {
-      padding: 10px 20px;
-      background: #007AFF;
-      color: #fff;
-      font-size: 1em;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      margin: auto 10px 10px 10px;
-      width: calc(100% - 20px);
-    }
-
-    .okay-button:hover {
-      background: #0056b3;
-    }
-
-    @keyframes flip {
-      0%, 1% {
-        transform: rotateY(0deg);
-      }
-      50%, 55% {
-        transform: rotateY(180deg);
-      }
-      10% {
-        transform: rotateY(360deg);
-      }
-    }
-
-    @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(100vh);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideDown {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(100vh);
-      }
-    }
+        .card-back {
+            background: url('img/ahtera_20240728_212614_0001.png') no-repeat center center; /* Ganti dengan URL gambar belakang */
+            background-size: cover;
+            transform: rotateY(180deg);
+        }
   </style>
 </head>
 <body>
@@ -881,77 +846,66 @@ $(document).ready(function(){
 
 
 <!-- card pairing -->
-
-  <div class="overlay" id="overlay"></div>
-<div class="cardpairing" id="cardpairing">
-  <div class="card-pairing">
-    <h2>ahtera™ Card</h2>
-    <p style="color:	#A9A9A9;">You are now holding the business card of<br>Mr M Aidil Alamsyah, CEO of Ahtera Group.</p>
-    <div class="card-container-pair">
-      <div class="knama">
-        <div class="front">
-          <img src="img/ahtera_20240728_212614_0000.png" alt="Front Image">
+     <!-- Pairingbox -->
+    <div class="pairingbox hidden" id="pairingbox">
+        <h1>ahtera™ Card</h1>
+        <div class="businesscard">
+            <div class="card-inner">
+                <div class="card-side card-front"></div>
+                <div class="card-side card-back"></div>
+            </div>
         </div>
-        <div class="back">
-          <img src="img/ahtera_20240728_212614_0001.png" alt="Back Image">
+        <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
+        <div class="button-pair">
+            <a href="#" class="action-button" id="cancel-button">Cancel</a>
+            <a href="#" class="action-button">View</a>
         </div>
-      </div>
     </div>
-    <button class="okay-button">View ahtera™ Card</button>
-  </div>
-</div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const overlay = document.querySelector('.overlay');
-      const card = document.querySelector('.card-pairing');
-
-      // Show overlay when card slides up
-      card.addEventListener('animationend', function() {
-        if (card.style.transform === 'translateY(0px)') {
-          overlay.classList.add('visible');
+    <script>
+        // Fungsi untuk set cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
-      });
 
-      document.addEventListener('click', function(event) {
-        const isClickInside = card.contains(event.target);
-        if (!isClickInside) {
-          card.style.animation = 'slideDown 3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards';
-          overlay.classList.remove('visible');
+        // Fungsi untuk ambil nilai cookie
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
         }
-      });
-    });
-  </script>
 
-  <script>
-    // Function buat redirect ke halaman father
-    function viewCard() {
-      window.location.href = "/priv/father.html";
-    }
+        // Fungsi untuk tampilkan atau sembunyikan pairingbox berdasarkan cookie
+        function checkCookie() {
+            const showPairingbox = getCookie('showPairingbox');
+            if (showPairingbox === 'true') {
+                document.getElementById('pairingbox').classList.remove('hidden');
+            } else {
+                document.getElementById('pairingbox').classList.add('hidden');
+            }
+        }
 
-    // Function buat dapetin nilai cookie
-    function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-      }
-      return null;
-    }
+        // Cek cookie untuk menampilkan atau menyembunyikan pairingbox
+        document.addEventListener('DOMContentLoaded', checkCookie);
 
-    // Cek apakah cookie 'fromShortlink' ada
-    var fromShortlink = getCookie('fromShortlink');
-    if (fromShortlink) {
-      // Tampilkan card kalau cookie ada
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('cardpairing').style.display = 'block';
-
-      // Hapus cookie setelah card muncul supaya nggak muncul lagi di kunjungan berikutnya
-      document.cookie = "fromShortlink=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    }
-  </script>
+        // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
+        document.getElementById('cancel-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah aksi default dari link
+            document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
+            setCookie('showPairingbox', '', -1); // Hapus cookie setelah menutup pairingbox
+        });
+    </script>
 <!-- end card pairing -->
 </body>
 </html>
