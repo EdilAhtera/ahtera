@@ -700,5 +700,61 @@ $(document).ready(function(){
             }
         });
     </script>
+
+
+
+<!-- card pairing -->
+  <div id="card-container"></div>
+
+  <script>
+    // Function buat redirect ke halaman father
+    function viewCard() {
+      window.location.href = "/priv/father.html";
+    }
+
+    // Function buat dapetin nilai parameter URL
+    function getURLParameter(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    // Function buat dapetin nilai cookie
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    // Load konten card dari /priv/cardpairing.html ke index.html
+    function loadCard() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/priv/cardpairing.html', true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          document.getElementById('card-container').innerHTML = xhr.responseText;
+          document.getElementById('overlay').style.display = 'block';
+          document.getElementById('card').style.display = 'block';
+        }
+      };
+      xhr.send();
+    }
+
+    // Cek apakah URL parameter 'showCard' dan cookie 'fromShortlink' ada
+    var showCard = getURLParameter('showCard');
+    var fromShortlink = getCookie('fromShortlink');
+    if (showCard === 'true' && fromShortlink) {
+      // Load dan tampilkan card kalau parameter dan cookie ada
+      loadCard();
+
+      // Hapus cookie setelah card muncul supaya nggak muncul lagi di kunjungan berikutnya
+      document.cookie = "fromShortlink=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+  </script>
+
+<!-- end card pairing -->
 </body>
 </html>
