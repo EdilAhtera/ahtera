@@ -865,26 +865,21 @@ $(document).ready(function(){
     </div>
 </div>
 
-<script>
-        // Fungsi untuk cek query parameter
-        function getQueryParameter(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
+   <script>
         document.addEventListener('DOMContentLoaded', function() {
             const pairingbox = document.getElementById('pairingbox');
-            
-            // Cek query parameter
-            const showPairingbox = getQueryParameter('showPairingbox');
 
-            if (showPairingbox === 'true') {
+            // Cek URL referer
+            const referrer = document.referrer;
+            const shortlink = 'edilahtera.github.io/ahtera/priv/shortlink.html'; // Sesuaikan path jika perlu
+
+            if (referrer.includes(shortlink)) {
                 if (pairingbox) {
-                    pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika query parameter ada
+                    pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika referer dari shortlink.html
                 }
             } else {
                 if (pairingbox) {
-                    pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika query parameter tidak ada
+                    pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika referer bukan dari shortlink.html
                 }
             }
 
