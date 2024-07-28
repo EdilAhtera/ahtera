@@ -12,18 +12,16 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
   <script src="redirect.js"></script> <!-- Pastikan path ke redirect.js benar -->
 <script>
-        // Function untuk generate parameter random dan mengubah URL
         function addRandomParam() {
             var currentUrl = window.location.href;
-            var newUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + "/?random=" + Math.random().toString(36).substring(2, 15);
+            var newUrl = window.location.origin + window.location.pathname.replace('father.html', '') + "?random=" + Math.random().toString(36).substring(2, 15);
             if (currentUrl !== newUrl) {
                 window.history.replaceState(null, null, newUrl);
             }
         }
 
-        // Tambahkan parameter random setelah halaman selesai dimuat
         document.addEventListener("DOMContentLoaded", addRandomParam);
- </script>
+    </script>
   <style>
         body {
       margin: 0;
