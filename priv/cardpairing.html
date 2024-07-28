@@ -1,0 +1,213 @@
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 1s;
+      display: none;
+      z-index: 0;
+    }
+
+    .overlay.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 500px;
+      height: 50vh;
+      padding: 20px;
+      background: #fff;
+      border-radius: 30px 30px 0 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(100vh);
+      animation: slideUp 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 1;
+      user-select: none; /* Disable text selection */
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, supported by Chrome, Opera */
+      -webkit-tap-highlight-color: transparent; /* Disable tap highlight on touch devices */
+    }
+
+    .card::before {
+      content: "";
+      display: block;
+      width: 25%;
+      height: 5px;
+      background: #D3D3D3 ;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .card-container {
+      perspective: 1000px;
+      width: 180px;
+      height: 120px;
+      margin: auto 0 20px 0;
+    }
+
+    .knama {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: flip 30s infinite;
+      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .knama div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+    }
+
+    .front {
+      background-color: #fff;
+    }
+
+    .front img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .back {
+      background-color: #f8f8f8;
+      transform: rotateY(180deg);
+    }
+
+    .back img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    h2 {
+      margin: 20px 0 5px 0;
+    }
+
+    p {
+      margin: 5px 0 20px 0;
+    }
+
+    .okay-button {
+      padding: 10px 20px;
+      background: #007AFF;
+      color: #fff;
+      font-size: 1em;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      margin: auto 10px 10px 10px;
+      width: calc(100% - 20px);
+    }
+
+    .okay-button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes flip {
+      0%, 1% {
+        transform: rotateY(0deg);
+      }
+      50%, 55% {
+        transform: rotateY(180deg);
+      }
+      10% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="card">
+    <h2>ahtera™ Card</h2>
+    <p style="color:	#A9A9A9;">You are now holding the business card of<br>Mr M Aidil Alamsyah, CEO of Ahtera Group.</p>
+    <div class="card-container">
+      <div class="knama">
+        <div class="front">
+          <img src="img/ahtera_20240728_212614_0000.png" alt="Front Image">
+        </div>
+        <div class="back">
+          <img src="img/ahtera_20240728_212614_0001.png" alt="Back Image">
+        </div>
+      </div>
+    </div>
+    <button class="okay-button">View ahtera™ Card</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const overlay = document.querySelector('.overlay');
+      const card = document.querySelector('.card');
+
+      // Show overlay when card slides up
+      card.addEventListener('animationend', function() {
+        if (card.style.transform === 'translateY(0px)') {
+          overlay.classList.add('visible');
+        }
+      });
+
+      document.addEventListener('click', function(event) {
+        const isClickInside = card.contains(event.target);
+        if (!isClickInside) {
+          card.style.animation = 'slideDown 3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards';
+          overlay.classList.remove('visible');
+        }
+      });
+    });
+  </script>
