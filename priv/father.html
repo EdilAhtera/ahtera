@@ -11,16 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
   <script src="redirect.js"></script> <!-- Pastikan path ke redirect.js benar -->
-<script>
-    function getRandomUrl() {
-        return "../priv/father.html?random=" + Math.random().toString(36).substring(2, 15);
-    }
+ <script>
+        // Function untuk generate parameter random
+        function addRandomParam() {
+            var currentUrl = window.location.href;
+            var newUrl = currentUrl.split('?')[0] + "?random=" + Math.random().toString(36).substring(2, 15);
+            if (currentUrl !== newUrl) {
+                window.history.replaceState(null, null, newUrl);
+            }
+        }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        var link = document.getElementById("about-link");
-        link.href = getRandomUrl();
-    });
-</script>
+        // Tambahkan parameter random setelah halaman selesai dimuat
+        document.addEventListener("DOMContentLoaded", addRandomParam);
+ </script>
   <style>
         body {
       margin: 0;
