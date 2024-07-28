@@ -865,25 +865,44 @@ $(document).ready(function(){
     </div>
 </div>
 
-   <script>
+    <script>
         function getQueryParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
+        }
+
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                result += characters[randomIndex];
+            }
+            return result;
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             const pairingbox = document.getElementById('pairingbox');
             const cancelButton = document.getElementById('cancel-button');
 
-            console.log('DOMContentLoaded triggered');
-
             const showPairingbox = getQueryParameter('showPairingbox');
+            const randomParam = getQueryParameter('random');
             console.log('Query Parameter showPairingbox:', showPairingbox);
+            console.log('Query Parameter random:', randomParam);
 
+            // Menampilkan atau menyembunyikan pairingbox
             if (pairingbox) {
                 if (showPairingbox === 'true') {
                     pairingbox.classList.remove('hidden');
                     console.log('Pairingbox displayed');
+
+                    // Generate random URL setelah 3 detik
+                    setTimeout(function() {
+                        const randomString = generateRandomString(10);
+                        const newUrl = `${window.location.pathname}?random=${randomString}`;
+                        window.history.replaceState(null, '', newUrl);
+                        console.log('URL updated to:', newUrl);
+                    }, 3000); // 3 detik
                 } else {
                     pairingbox.classList.add('hidden');
                     console.log('Pairingbox hidden');
@@ -892,6 +911,7 @@ $(document).ready(function(){
                 console.error('Element with ID "pairingbox" not found');
             }
 
+            // Event listener untuk tombol cancel
             if (cancelButton) {
                 cancelButton.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -900,6 +920,7 @@ $(document).ready(function(){
                         console.log('Pairingbox hidden on cancel');
                     }
                 });
+                console.log('Cancel button event listener added');
             } else {
                 console.error('Element with ID "cancel-button" not found');
             }
