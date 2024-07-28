@@ -865,7 +865,7 @@ $(document).ready(function(){
     </div>
 </div>
 
-      <script>
+   <script>
         function getQueryParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
@@ -877,10 +877,10 @@ $(document).ready(function(){
 
             console.log('DOMContentLoaded triggered');
 
-            if (pairingbox) {
-                const showPairingbox = getQueryParameter('showPairingbox');
-                console.log('Query Parameter:', showPairingbox);
+            const showPairingbox = getQueryParameter('showPairingbox');
+            console.log('Query Parameter showPairingbox:', showPairingbox);
 
+            if (pairingbox) {
                 if (showPairingbox === 'true') {
                     pairingbox.classList.remove('hidden');
                     console.log('Pairingbox displayed');
