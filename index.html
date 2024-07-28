@@ -250,7 +250,9 @@ z-index:1000;
         }
 
         .pairingbox.hidden {
-            display: none; /* Menyembunyikan popup */
+            opacity: 0;
+        transform: translateY(100%);
+        display: none;
         }
 
         .pairingbox h1 {
@@ -863,50 +865,52 @@ $(document).ready(function(){
         </div>
     </div>
 
-    <script>
-        // Fungsi untuk set cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                let date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+   <script>
+    // Fungsi untuk set cookie
+    function setCookie(name, value, minutes) {
+        let expires = "";
+        if (minutes) {
+            let date = new Date();
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
         }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
 
-        // Fungsi untuk ambil nilai cookie
-        function getCookie(name) {
-            let nameEQ = name + "=";
-            let ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
+    // Fungsi untuk ambil nilai cookie
+    function getCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
+        return null;
+    }
 
-        // Fungsi untuk tampilkan atau sembunyikan pairingbox berdasarkan cookie
-        function checkCookie() {
-            const showPairingbox = getCookie('showPairingbox');
-            if (showPairingbox === 'true') {
-                document.getElementById('pairingbox').classList.remove('hidden');
-            } else {
-                document.getElementById('pairingbox').classList.add('hidden');
-            }
+    // Fungsi untuk tampilkan atau sembunyikan pairingbox berdasarkan cookie
+    function checkCookie() {
+        const showPairingbox = getCookie('showPairingbox');
+        if (showPairingbox === 'true') {
+            document.getElementById('pairingbox').classList.remove('hidden');
+        } else {
+            document.getElementById('pairingbox').classList.add('hidden');
         }
+    }
 
-        // Cek cookie untuk menampilkan atau menyembunyikan pairingbox
-        document.addEventListener('DOMContentLoaded', checkCookie);
+    // Cek cookie untuk menampilkan atau menyembunyikan pairingbox
+    document.addEventListener('DOMContentLoaded', function() {
+        checkCookie();
 
         // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
         document.getElementById('cancel-button').addEventListener('click', function(event) {
             event.preventDefault(); // Mencegah aksi default dari link
             document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
-            setCookie('showPairingbox', '', -1); // Hapus cookie setelah menutup pairingbox
+            setCookie('showPairingbox', 'false', 5); // Atur cookie untuk tidak tampil lagi selama 5 menit
         });
-    </script>
+    });
+</script>
 <!-- end card pairing -->
 </body>
 </html>
