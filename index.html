@@ -707,11 +707,6 @@ $(document).ready(function(){
   <div id="card-container"></div>
 
   <script>
-    // Function buat redirect ke halaman father
-    function viewCard() {
-      window.location.href = "/priv/father.html";
-    }
-
     // Function buat dapetin nilai parameter URL
     function getURLParameter(name) {
       return new URLSearchParams(window.location.search).get(name);
@@ -738,6 +733,8 @@ $(document).ready(function(){
           document.getElementById('card-container').innerHTML = xhr.responseText;
           document.getElementById('overlay').style.display = 'block';
           document.getElementById('card').style.display = 'block';
+        } else if (xhr.readyState === 4) {
+          console.error("Failed to load card content.");
         }
       };
       xhr.send();
