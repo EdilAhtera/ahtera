@@ -866,32 +866,37 @@ $(document).ready(function(){
 </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const pairingbox = document.getElementById('pairingbox');
+     // Fungsi untuk cek query parameter
+function getQueryParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
 
-            // Cek URL referer
-            const referrer = document.referrer;
-            const shortlink = 'edilahtera.github.io/ahtera/shortlink.html'; // Sesuaikan path jika perlu
+document.addEventListener('DOMContentLoaded', function() {
+    const pairingbox = document.getElementById('pairingbox');
 
-            if (referrer.includes(shortlink)) {
-                if (pairingbox) {
-                    pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika referer dari shortlink.html
-                }
-            } else {
-                if (pairingbox) {
-                    pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika referer bukan dari shortlink.html
-                }
-            }
+    // Cek query parameter
+    const showPairingbox = getQueryParameter('showPairingbox');
 
-            // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-            const cancelButton = document.getElementById('cancel-button');
-            if (cancelButton) {
-                cancelButton.addEventListener('click', function(event) {
-                    event.preventDefault(); // Mencegah aksi default dari link
-                    pairingbox.classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
-                });
-            }
+    if (showPairingbox === 'true') {
+        if (pairingbox) {
+            pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika query parameter ada
+        }
+    } else {
+        if (pairingbox) {
+            pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika query parameter tidak ada
+        }
+    }
+
+    // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
+    const cancelButton = document.getElementById('cancel-button');
+    if (cancelButton) {
+        cancelButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah aksi default dari link
+            pairingbox.classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
         });
+    }
+});
     </script>
 </body>
 </html>
