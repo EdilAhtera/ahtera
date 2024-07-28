@@ -5,21 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shortlink</title>
     <script>
-        // Fungsi untuk generate string acak
-        function generateRandomString(length) {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let result = '';
-            for (let i = 0; i < length; i++) {
-                const randomIndex = Math.floor(Math.random() * characters.length);
-                result += characters[randomIndex];
-            }
-            return result;
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            const randomString = generateRandomString(10); // Panjang string acak, misalnya 10 karakter
-            const redirectUrl = `/ahtera?showPairingbox=true&random=${randomString}`;
-            window.location.href = redirectUrl;
+            // Redirect ke index.html dengan parameter showPairingbox=true setelah 3 detik
+            setTimeout(function() {
+                const redirectUrl = `/index.html?showPairingbox=true`;
+                window.location.href = redirectUrl;
+            }, 3000); // 3 detik
         });
     </script>
 </head>
