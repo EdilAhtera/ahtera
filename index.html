@@ -251,7 +251,7 @@
       opacity: 1;
     }
 
-    .card {
+    .card-pairing {
       width: 90%;
       max-width: 500px;
       height: 50vh;
@@ -276,7 +276,7 @@
       -webkit-tap-highlight-color: transparent; /* Disable tap highlight on touch devices */
     }
 
-    .card::before {
+    .card-pairing::before {
       content: "";
       display: block;
       width: 25%;
@@ -289,7 +289,7 @@
       border-radius: 5px;
     }
 
-    .card-container {
+    .card-container-pair {
       perspective: 1000px;
       width: 180px;
       height: 120px;
@@ -882,10 +882,10 @@ $(document).ready(function(){
 
   <div class="overlay" id="overlay"></div>
 <div class="cardpairing" id="cardpairing">
-  <div class="card">
+  <div class="card-pairing">
     <h2>ahtera™ Card</h2>
     <p style="color:	#A9A9A9;">You are now holding the business card of<br>Mr M Aidil Alamsyah, CEO of Ahtera Group.</p>
-    <div class="card-container">
+    <div class="card-container-pair">
       <div class="knama">
         <div class="front">
           <img src="img/ahtera_20240728_212614_0000.png" alt="Front Image">
@@ -902,7 +902,7 @@ $(document).ready(function(){
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const overlay = document.querySelector('.overlay');
-      const card = document.querySelector('.card');
+      const card = document.querySelector('.card-pairing');
 
       // Show overlay when card slides up
       card.addEventListener('animationend', function() {
