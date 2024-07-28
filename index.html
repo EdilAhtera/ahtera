@@ -865,38 +865,45 @@ $(document).ready(function(){
     </div>
 </div>
 
-    <script>
-     // Fungsi untuk cek query parameter
-function getQueryParameter(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    const pairingbox = document.getElementById('pairingbox');
-
-    // Cek query parameter
-    const showPairingbox = getQueryParameter('showPairingbox');
-
-    if (showPairingbox === 'true') {
-        if (pairingbox) {
-            pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika query parameter ada
+      <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
         }
-    } else {
-        if (pairingbox) {
-            pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika query parameter tidak ada
-        }
-    }
 
-    // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-    const cancelButton = document.getElementById('cancel-button');
-    if (cancelButton) {
-        cancelButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Mencegah aksi default dari link
-            pairingbox.classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
+        document.addEventListener('DOMContentLoaded', function() {
+            const pairingbox = document.getElementById('pairingbox');
+            const cancelButton = document.getElementById('cancel-button');
+
+            console.log('DOMContentLoaded triggered');
+
+            if (pairingbox) {
+                const showPairingbox = getQueryParameter('showPairingbox');
+                console.log('Query Parameter:', showPairingbox);
+
+                if (showPairingbox === 'true') {
+                    pairingbox.classList.remove('hidden');
+                    console.log('Pairingbox displayed');
+                } else {
+                    pairingbox.classList.add('hidden');
+                    console.log('Pairingbox hidden');
+                }
+            } else {
+                console.error('Element with ID "pairingbox" not found');
+            }
+
+            if (cancelButton) {
+                cancelButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    if (pairingbox) {
+                        pairingbox.classList.add('hidden');
+                        console.log('Pairingbox hidden on cancel');
+                    }
+                });
+            } else {
+                console.error('Element with ID "cancel-button" not found');
+            }
         });
-    }
-});
     </script>
 </body>
 </html>
