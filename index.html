@@ -904,13 +904,18 @@ $(document).ready(function(){
         checkCookie();
 
         // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-        document.getElementById('cancel-button').addEventListener('click', function(event) {
-            event.preventDefault(); // Mencegah aksi default dari link
-            document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
-            setCookie('showPairingbox', 'false', 1); // Atur cookie untuk tidak tampil lagi selama 1 hari
-        });
+        const cancelButton = document.getElementById('cancel-button');
+        if (cancelButton) {
+            cancelButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Mencegah aksi default dari link
+                console.log('Cancel button clicked');
+                document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
+                setCookie('showPairingbox', 'false', 1); // Atur cookie untuk tidak tampil lagi selama 1 hari
+            });
+        } else {
+            console.log('Cancel button not found');
+        }
     });
 </script>
-<!-- end card pairing -->
 </body>
 </html>
