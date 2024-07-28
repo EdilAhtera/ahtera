@@ -866,32 +866,37 @@ $(document).ready(function(){
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const pairingbox = document.getElementById('pairingbox');
-        
-        // Cek URL
-        const currentUrl = window.location.href;
-
-        // Kondisi untuk cek URL apakah mengandung 'shortlink.html'
-        if (currentUrl.includes('shortlink.html')) {
-            if (pairingbox) {
-                pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika URL mengandung 'shortlink.html'
-            }
-        } else {
-            if (pairingbox) {
-                pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika URL tidak mengandung 'shortlink.html'
-            }
+        // Fungsi untuk cek query parameter
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
         }
 
-        // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-        const cancelButton = document.getElementById('cancel-button');
-        if (cancelButton) {
-            cancelButton.addEventListener('click', function(event) {
-                event.preventDefault(); // Mencegah aksi default dari link
-                pairingbox.classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
-            });
-        }
-    });
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pairingbox = document.getElementById('pairingbox');
+            
+            // Cek query parameter
+            const showPairingbox = getQueryParameter('showPairingbox');
+
+            if (showPairingbox === 'true') {
+                if (pairingbox) {
+                    pairingbox.classList.remove('hidden'); // Tampilkan pairingbox jika query parameter ada
+                }
+            } else {
+                if (pairingbox) {
+                    pairingbox.classList.add('hidden'); // Sembunyikan pairingbox jika query parameter tidak ada
+                }
+            }
+
+            // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
+            const cancelButton = document.getElementById('cancel-button');
+            if (cancelButton) {
+                cancelButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah aksi default dari link
+                    pairingbox.classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
+                });
+            }
+        });
+    </script>
 </body>
 </html>
