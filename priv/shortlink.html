@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Shortlink Redirect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlink Redirect</title>
+    <script>
+        // Fungsi untuk set cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Redirect ke halaman utama dan set cookie
+        function redirectToMainPage() {
+            setCookie('showPairingbox', 'true', 1); // Set cookie untuk 1 hari
+            window.location.href = 'https://edilahtera.github.io/ahtera'; // Redirect ke halaman utama
+        }
+
+        // Jalankan redirect saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', redirectToMainPage);
+    </script>
 </head>
 <body>
-  <script>
-    // Set cookie 'fromShortlink' ketika user masuk dari shortlink
-    document.cookie = "fromShortlink=true; path=/";
-
-    // Redirect ke halaman utama dengan parameter showCard=true
-    window.location.href = "https://edilahtera.github.io/ahtera?showCard=true"; // Ganti "edilAhtera.github.io/ahtera" dengan domain utama lo
-  </script>
 </body>
 </html>
