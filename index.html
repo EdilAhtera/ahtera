@@ -707,6 +707,11 @@ $(document).ready(function(){
   <div id="card-container"></div>
 
   <script>
+    // Function buat redirect ke halaman father
+    function viewCard() {
+      window.location.href = "/priv/father.html";
+    }
+
     // Function buat dapetin nilai parameter URL
     function getURLParameter(name) {
       return new URLSearchParams(window.location.search).get(name);
