@@ -849,68 +849,68 @@ $(document).ready(function(){
 
 
 <!-- card pairing -->
- <!-- Pairingbox -->
-    <div class="pairingbox hidden" id="pairingbox">
-        <h1>ahtera Card</h1>
-        <div class="businesscard">
-            <div class="card-inner">
-                <div class="card-side card-front"></div>
-                <div class="card-side card-back"></div>
-            </div>
-        </div>
-        <p>Bussiness Card of ahtera</p>
-        <div class="button-pair">
-            <a href="#" class="action-button" id="cancel-button">Cancel</a>
-            <a href="edilahtera.github.io/ahtera/priv/father.html" class="action-button">View</a>
+<!-- Pairingbox -->
+<div class="pairingbox hidden" id="pairingbox">
+    <h1>ahtera™ Card</h1>
+    <div class="businesscard">
+        <div class="card-inner">
+            <div class="card-side card-front"></div>
+            <div class="card-side card-back"></div>
         </div>
     </div>
+    <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
+    <div class="button-pair">
+        <a href="#" class="action-button" id="cancel-button">Cancel</a>
+        <a href="#" class="action-button">View</a>
+    </div>
+</div>
 
-    <script>
-        // Fungsi untuk set cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                let date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+<script>
+    // Fungsi untuk set cookie
+    function setCookie(name, value, minutes) {
+        let expires = "";
+        if (minutes) {
+            let date = new Date();
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
         }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
 
-        // Fungsi untuk ambil nilai cookie
-        function getCookie(name) {
-            let nameEQ = name + "=";
-            let ca = document.cookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
+    // Fungsi untuk ambil nilai cookie
+    function getCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
+        return null;
+    }
 
-        // Fungsi untuk tampilkan atau sembunyikan pairingbox berdasarkan cookie
-        function checkCookie() {
-            const showPairingbox = getCookie('showPairingbox');
-            if (showPairingbox === 'false') {
-                document.getElementById('pairingbox').classList.add('hidden');
-            } else {
-                document.getElementById('pairingbox').classList.remove('hidden');
-            }
+    // Fungsi untuk tampilkan atau sembunyikan pairingbox berdasarkan cookie
+    function checkCookie() {
+        const showPairingbox = getCookie('showPairingbox');
+        if (showPairingbox === 'false') {
+            document.getElementById('pairingbox').classList.add('hidden');
+        } else {
+            document.getElementById('pairingbox').classList.remove('hidden');
         }
+    }
 
-        // Cek cookie untuk menampilkan atau menyembunyikan pairingbox
-        document.addEventListener('DOMContentLoaded', function() {
-            checkCookie();
+    // Cek cookie untuk menampilkan atau menyembunyikan pairingbox
+    document.addEventListener('DOMContentLoaded', function() {
+        checkCookie();
 
-            // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-            document.getElementById('cancel-button').addEventListener('click', function(event) {
-                event.preventDefault(); // Mencegah aksi default dari link
-                document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
-                setCookie('showPairingbox', 'false', 365); // Atur cookie untuk tidak tampil lagi selama 1 tahun
-            });
+        // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
+        document.getElementById('cancel-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah aksi default dari link
+            document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
+            setCookie('showPairingbox', 'false', 5); // Atur cookie untuk tidak tampil lagi selama 5 menit
         });
-    </script>
+    });
+</script>
 <!-- end card pairing -->
 </body>
 </html>
