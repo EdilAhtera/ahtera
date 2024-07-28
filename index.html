@@ -704,14 +704,10 @@ $(document).ready(function(){
 
 
 <!-- card pairing -->
-  <div id="card-container"></div>
+   <div id="overlay" class="overlay"></div>
+  <div id="card" class="card"></div>
 
   <script>
-    // Function buat redirect ke halaman father
-    function viewCard() {
-      window.location.href = "/priv/father.html";
-    }
-
     // Function buat dapetin nilai parameter URL
     function getURLParameter(name) {
       return new URLSearchParams(window.location.search).get(name);
@@ -735,7 +731,7 @@ $(document).ready(function(){
       xhr.open('GET', '/priv/cardpairing.html', true);
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          document.getElementById('card-container').innerHTML = xhr.responseText;
+          document.getElementById('card').innerHTML = xhr.responseText;
           document.getElementById('overlay').style.display = 'block';
           document.getElementById('card').style.display = 'block';
         } else if (xhr.readyState === 4) {
@@ -756,7 +752,6 @@ $(document).ready(function(){
       document.cookie = "fromShortlink=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
   </script>
-
 <!-- end card pairing -->
 </body>
 </html>
