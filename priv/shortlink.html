@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortlink Redirect</title>
+</head>
+<body>
+  <script>
+    // Set cookie 'fromShortlink' ketika user masuk dari shortlink
+    document.cookie = "fromShortlink=true; path=/";
+
+    // Redirect ke halaman utama setelah set cookie
+    window.location.href = "https://www.yourdomain.com"; // Ganti "yourdomain.com" dengan domain utama lo
+  </script>
+</body>
+</html>
