@@ -14,7 +14,7 @@
 <script>
         function addRandomParam() {
             var currentUrl = window.location.href;
-            var newUrl = window.location.origin + window.location.pathname.replace('father.html', '') + "?random=" + Math.random().toString(36).substring(2, 15);
+            var newUrl = window.location.origin + "/?random=" + Math.random().toString(36).substring(2, 15);
             if (currentUrl !== newUrl) {
                 window.history.replaceState(null, null, newUrl);
             }
