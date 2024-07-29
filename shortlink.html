@@ -15,8 +15,73 @@
             }
         };
     </script>
+
+  <style>
+        /* CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            overflow: hidden; /* Mencegah scroll saat loading */
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-bar {
+            width: 50%;
+            height: 4px;
+            background-color: #f3f3f3;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: black;
+            border-radius: 2px;
+            position: absolute;
+            left: 0;
+            width: 0;
+            transition: width 0.4s ease;
+        }
+    </style>
 </head>
 <body>
-    Redirecting...
+       <div class="loading-screen">
+        <div class="loading-bar">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('progress-bar');
+            let progress = 0;
+
+            function updateProgress() {
+                if (progress < 100) {
+                    progress += 1; // Increment progress
+                    progressBar.style.width = progress + '%'; // Update progress bar width
+                    setTimeout(updateProgress, 50); // Update every 50ms
+                } else {
+                    document.querySelector('.loading-screen').style.display = 'none'; // Hide loading screen when done
+                }
+            }
+
+            updateProgress();
+        });
+    </script>
 </body>
 </html>
