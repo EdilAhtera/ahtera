@@ -705,19 +705,14 @@ $(document).ready(function(){
     </script>
 
 
-    <script>
+<!-- pairing call -->
+  <div id="include-content">
+        <!-- Konten dari priv/GhkgigssoDnwbaw akan di-insert di sini kalau ID cocok -->
+    </div>
+      <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
-        }
-
-        function generateRandomLink() {
-            let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let link = '';
-            for (let i = 0; i < 10; i++) {
-                link += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return link;
         }
 
         window.onload = function() {
@@ -727,13 +722,6 @@ $(document).ready(function(){
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('include-content').innerHTML = data;
-
-                        // Generate random link
-                        let randomLink = generateRandomLink();
-                        let linkElement = document.createElement('a');
-                        linkElement.href = `https://example.com/${randomLink}`;
-                        linkElement.innerText = `Random Link: ${randomLink}`;
-                        document.getElementById('random-link').appendChild(linkElement);
                     })
                     .catch(error => console.log('Error:', error));
             } else {
@@ -741,13 +729,5 @@ $(document).ready(function(){
             }
         };
     </script>
-</head>
-<body>
-    <div id="include-content">
-        <!-- Konten dari priv/GhkgigssoDnwbaw akan di-insert di sini kalau ID cocok -->
-    </div>
-    <div id="random-link">
-        <!-- Random link akan di-insert di sini kalau ID cocok -->
-    </div>
 </body>
 </html>
