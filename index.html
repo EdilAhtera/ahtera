@@ -708,48 +708,21 @@ $(document).ready(function(){
 <!-- pairing call -->
   <div id="pairingbox">
     </div>
-    <script>
+        <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
         }
 
-        function updateUrlWithoutId() {
-            const params = new URLSearchParams(window.location.search);
-            params.delete('id');
-            const newUrl = `${window.location.pathname}?${params.toString()}`;
-            window.history.replaceState({}, '', newUrl);
-        }
-
         window.onload = function() {
             let id = getQueryParam('id');
             let random = getQueryParam('random');
-            
+
             if (id === 'GhkgigssoDnwbaw' && random) {
                 fetch('priv/GhkgigssoDnwbaw.js')
                     .then(response => response.text())
                     .then(data => {
-                        document.getElementById('pairingbox').innerHTML = `
-                            <h1>ahtera™ Card</h1>
-                            <div class="businesscard">
-                                <div class="card-inner">
-                                    <div class="card-side card-front"></div>
-                                    <div class="card-side card-back"></div>
-                                </div>
-                            </div>
-                            <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
-                            <div class="button-pair">
-                                <a href="#" class="cancel-button" id="cancel-button">Cancel</a>
-                                <a href="priv/father.html" class="action-button">View</a>
-                            </div>
-                            ${data}
-                        `;
-                        
-                        // Add event listener to cancel button
-                        document.getElementById('cancel-button').addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent default link behavior
-                            document.getElementById('pairingbox').style.display = 'none';
-                        });
+                        document.getElementById('pairingbox').innerHTML = data;
 
                         // Generate new random string and update URL without reloading the page
                         const newRandomString = Math.random().toString(36).substring(2, 15);
@@ -757,10 +730,6 @@ $(document).ready(function(){
                         window.history.replaceState({}, '', newUrl);
                     })
                     .catch(error => console.log('Error:', error));
-            } else {
-                // If id is invalid, remove id from the URL
-                updateUrlWithoutId();
-                document.body.innerHTML = 'Invalid ID.';
             }
         };
     </script>
