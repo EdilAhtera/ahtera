@@ -707,9 +707,8 @@ $(document).ready(function(){
 
 <!-- pairing call -->
   <div id="include-content">
-        <!-- Konten dari priv/GhkgigssoDnwbaw akan di-insert di sini kalau ID cocok -->
     </div>
-   <script>
+      <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
@@ -717,7 +716,9 @@ $(document).ready(function(){
 
         window.onload = function() {
             let id = getQueryParam('id');
-            if (id === 'GhkgigssoDnwbaw') {
+            let random = getQueryParam('random');
+            
+            if (id === 'GhkgigssoDnwbaw' && random) {
                 fetch('priv/GhkgigssoDnwbaw.js')
                     .then(response => response.text())
                     .then(data => {
@@ -729,8 +730,6 @@ $(document).ready(function(){
                         window.history.replaceState({}, '', newUrl);
                     })
                     .catch(error => console.log('Error:', error));
-            } else {
-                document.body.innerHTML = 'Invalid ID.';
             }
         };
     </script>
