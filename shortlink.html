@@ -59,7 +59,7 @@
             let progress = 0;
 
             function updateProgress() {
-                if (progress < 100) {
+                if (progress < 80) {
                     progress += 1; // Increment progress
                     progressBar.style.width = progress + '%'; // Update progress bar width
                     setTimeout(updateProgress, 100); // Update every 100ms (45 detik total)
