@@ -138,14 +138,14 @@
     </style>
 
     <div class="pairingbox" id="pairingbox">
-        <h1>ahtera™ Card</h1>
+        <h1>ahteraCard</h1>
         <div class="businesscard">
             <div class="card-inner">
                 <div class="card-side card-front"></div>
                 <div class="card-side card-back"></div>
             </div>
         </div>
-        <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
+        <p>hubungkan kartu nama ke perangkat anda</p>
         <div class="button-pair">
                 <a href="edilahtera.github.io/ahtera class="action-button" id="cancel-button">Cancel</a>     
      <a href="priv/father.html" class="action-button">View</a>
