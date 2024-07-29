@@ -147,21 +147,19 @@
         </div>
         <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
         <div class="button-pair">
-            <a href="#" class="action-button" id="cancel-button">Cancel</a>
-            <a href="priv/father.html" class="action-button">View</a>
+                <button type="button" class="action-button" id="cancel-button">Cancel</button>     
+     <a href="priv/father.html" class="action-button">View</a>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var cancelButton = document.getElementById('cancel-button');
-            var pairingBox = document.getElementById('pairingbox');
-
-            if (cancelButton && pairingBox) {
-                cancelButton.addEventListener('click', function(event) {
-                    event.preventDefault(); // Mencegah aksi default dari link
-                    pairingBox.classList.add('hidden'); // Menyembunyikan pairingbox dengan class hidden
-                });
-            }
-        });
-    </script>
+<script>
+  // Ambil elemen tombol dan pairingbox
+  const cancelButton = document.getElementById('cancel-button');
+  const pairingbox = document.getElementById('pairingbox');
+  
+  // Tambahkan event listener untuk tombol Cancel
+  cancelButton.addEventListener('click', function() {
+    // Sembunyikan pairingbox
+    pairingbox.style.display = 'none';
+  });
+</script>
