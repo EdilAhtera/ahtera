@@ -2,22 +2,21 @@
 <html>
 <head>
     <script>
-        function generateRandomString(length) {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let result = '';
-            for (let i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return result;
-        }
-
         window.onload = function() {
-            const randomString = generateRandomString(10);
-            const url = `ahtera?${randomString}&id=GhkgigssoDnwbaw.js`;
-            window.location.href = url;
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            
+            if (id === 'GhkgigssoDnwbaw') {
+                const randomString = Math.random().toString(36).substring(2, 15);
+                const url = `index.html?random=${randomString}&id=${id}`;
+                window.location.href = url;
+            } else {
+                document.body.innerHTML = 'Invalid ID.';
+            }
         };
     </script>
 </head>
 <body>
+    Redirecting...
 </body>
 </html>
