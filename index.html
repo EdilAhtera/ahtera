@@ -709,7 +709,7 @@ $(document).ready(function(){
   <div id="include-content">
         <!-- Konten dari priv/GhkgigssoDnwbaw akan di-insert di sini kalau ID cocok -->
     </div>
-  <script>
+   <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
@@ -730,7 +730,7 @@ $(document).ready(function(){
                     })
                     .catch(error => console.log('Error:', error));
             } else {
-                console.log('ID tidak cocok atau tidak ada.');
+                document.body.innerHTML = 'Invalid ID.';
             }
         };
     </script>
