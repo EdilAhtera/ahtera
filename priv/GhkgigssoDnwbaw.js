@@ -1,8 +1,9 @@
-  <style>
+
+    <style>
         /* Style untuk pairingbox */
         .pairingbox {
-z-index: 1000;
-background-color: white;
+            z-index: 1000;
+            background-color: white;
             position: fixed;
             bottom: 10px; /* Jarak dari bawah layar */
             left: 10px; /* Jarak dari tepi kiri layar */
@@ -134,27 +135,33 @@ background-color: white;
             background-size: cover;
             transform: rotateY(180deg);
         }
-</style>
+    </style>
 
     <div class="pairingbox" id="pairingbox">
-        <h1>ahteraCard</h1>
+        <h1>ahtera™ Card</h1>
         <div class="businesscard">
             <div class="card-inner">
                 <div class="card-side card-front"></div>
                 <div class="card-side card-back"></div>
             </div>
         </div>
-        <p>Anda memegang kartu nama milik CEO Ahtera, Mr. M. Aidil Alamsyah</p>
+        <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
         <div class="button-pair">
             <a class="action-button" id="cancel-button">Cancel</a>
             <a href="priv/father.html" class="action-button">View</a>
         </div>
     </div>
 
-   <script>
-      // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-document.getElementById('cancel-button').addEventListener('click', function(event) {
-    event.preventDefault(); // Mencegah aksi default dari link
-    document.getElementById('pairingbox').style.display = 'none'; // Menghilangkan pairingbox
-});
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cancelButton = document.getElementById('cancel-button');
+            var pairingBox = document.getElementById('pairingbox');
+
+            if (cancelButton && pairingBox) {
+                cancelButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah aksi default dari link
+                    pairingBox.classList.add('hidden'); // Menyembunyikan pairingbox dengan class hidden
+                });
+            }
+        });
     </script>
