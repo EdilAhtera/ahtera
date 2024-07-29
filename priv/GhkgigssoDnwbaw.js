@@ -1,7 +1,8 @@
- <style>
+  <style>
         /* Style untuk pairingbox */
         .pairingbox {
 z-index: 1000;
+background-color: white;
             position: fixed;
             bottom: 10px; /* Jarak dari bawah layar */
             left: 10px; /* Jarak dari tepi kiri layar */
@@ -133,9 +134,8 @@ z-index: 1000;
             background-size: cover;
             transform: rotateY(180deg);
         }
-    </style>
-</head>
-<body>
+</style>
+
     <div class="pairingbox" id="pairingbox">
         <h1>ahtera™ Card</h1>
         <div class="businesscard">
