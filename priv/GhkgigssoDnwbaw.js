@@ -137,7 +137,7 @@ background-color: white;
 </style>
 
     <div class="pairingbox" id="pairingbox">
-        <h1>ahtera™ Card</h1>
+        <h1>ahteraCard</h1>
         <div class="businesscard">
             <div class="card-inner">
                 <div class="card-side card-front"></div>
@@ -147,14 +147,14 @@ background-color: white;
         <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
         <div class="button-pair">
             <a href="#" class="action-button" id="cancel-button">Cancel</a>
-            <a href="#" class="action-button">View</a>
+            <a href="priv/father.html" class="action-button">View</a>
         </div>
     </div>
 
-    <script>
-        // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
-        document.getElementById('cancel-button').addEventListener('click', function(event) {
-            event.preventDefault(); // Mencegah aksi default dari link
-            document.getElementById('pairingbox').classList.add('hidden'); // Menambahkan class hidden untuk menyembunyikan popup
-        });
+   <script>
+      // JavaScript untuk menghilangkan popup saat tombol Cancel diklik
+document.getElementById('cancel-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah aksi default dari link
+    document.getElementById('pairingbox').style.display = 'none'; // Menghilangkan pairingbox
+});
     </script>
