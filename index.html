@@ -730,13 +730,25 @@ $(document).ready(function(){
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('pairingbox').innerHTML = `
-                            <button class="cancel-button" id="cancel-button">Cancel</button>
+                            <h1>ahtera™ Card</h1>
+                            <div class="businesscard">
+                                <div class="card-inner">
+                                    <div class="card-side card-front"></div>
+                                    <div class="card-side card-back"></div>
+                                </div>
+                            </div>
+                            <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
+                            <div class="button-pair">
+                                <a href="#" class="cancel-button" id="cancel-button">Cancel</a>
+                                <a href="priv/father.html" class="action-button">View</a>
+                            </div>
                             ${data}
                         `;
                         
                         // Add event listener to cancel button
-                        document.getElementById('cancel-button').addEventListener('click', function() {
-                            document.getElementById('pairingbox').innerHTML = '';
+                        document.getElementById('cancel-button').addEventListener('click', function(event) {
+                            event.preventDefault(); // Prevent default link behavior
+                            document.getElementById('pairingbox').style.display = 'none';
                         });
 
                         // Generate new random string and update URL without reloading the page
