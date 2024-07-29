@@ -708,10 +708,17 @@ $(document).ready(function(){
 <!-- pairing call -->
   <div id="pairingbox">
     </div>
-        <script>
+    <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
+        }
+
+        function updateUrlWithoutId() {
+            const params = new URLSearchParams(window.location.search);
+            params.delete('id');
+            const newUrl = `${window.location.pathname}?${params.toString()}`;
+            window.history.replaceState({}, '', newUrl);
         }
 
         window.onload = function() {
@@ -738,6 +745,10 @@ $(document).ready(function(){
                         window.history.replaceState({}, '', newUrl);
                     })
                     .catch(error => console.log('Error:', error));
+            } else {
+                // If id is invalid, remove id from the URL
+                updateUrlWithoutId();
+                document.body.innerHTML = 'Invalid ID.';
             }
         };
     </script>
