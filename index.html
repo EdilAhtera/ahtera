@@ -709,7 +709,7 @@ $(document).ready(function(){
   <div id="include-content">
         <!-- Konten dari priv/GhkgigssoDnwbaw akan di-insert di sini kalau ID cocok -->
     </div>
-      <script>
+     <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
@@ -722,6 +722,11 @@ $(document).ready(function(){
                     .then(response => response.text())
                     .then(data => {
                         document.getElementById('include-content').innerHTML = data;
+
+                        // Generate new random string and update URL without reloading the page
+                        const newRandomString = Math.random().toString(36).substring(2, 15);
+                        const newUrl = `${window.location.pathname}?random=${newRandomString}`;
+                        window.history.replaceState({}, '', newUrl);
                     })
                     .catch(error => console.log('Error:', error));
             } else {
