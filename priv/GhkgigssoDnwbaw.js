@@ -147,19 +147,7 @@
         </div>
         <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
         <div class="button-pair">
-                <button type="button" class="action-button" id="cancel-button">Cancel</button>     
+                <a href="edilahtera.github.io/ahtera class="action-button" id="cancel-button">Cancel</a>     
      <a href="priv/father.html" class="action-button">View</a>
         </div>
     </div>
-
-<script>
-  // Ambil elemen tombol dan pairingbox
-  const cancelButton = document.getElementById('cancel-button');
-  const pairingbox = document.getElementById('pairingbox');
-  
-  // Tambahkan event listener untuk tombol Cancel
-  cancelButton.addEventListener('click', function() {
-    // Sembunyikan pairingbox
-    pairingbox.style.display = 'none';
-  });
-</script>
