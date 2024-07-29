@@ -147,7 +147,7 @@
         </div>
         <p>You are holding the business card of<br> Mr M Aidil Alamsyah, CEO of Ahtera</p>
         <div class="button-pair">
-            <button class="action-button" id="cancel-button">Cancel</button>
+            <a href="#" class="action-button" id="cancel-button">Cancel</a>
             <a href="priv/father.html" class="action-button">View</a>
         </div>
     </div>
