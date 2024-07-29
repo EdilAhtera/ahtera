@@ -146,7 +146,7 @@ background-color: white;
         </div>
         <p>Anda memegang kartu nama milik CEO Ahtera, Mr. M. Aidil Alamsyah</p>
         <div class="button-pair">
-            <a href="#" class="action-button" id="cancel-button">Cancel</a>
+            <a class="action-button" id="cancel-button">Cancel</a>
             <a href="priv/father.html" class="action-button">View</a>
         </div>
     </div>
