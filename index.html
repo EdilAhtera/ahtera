@@ -732,6 +732,17 @@ $(document).ready(function(){
                     .catch(error => console.log('Error:', error));
             }
         };
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Tambahkan event listener ke tombol cancel
+    document.getElementById('cancel-button').addEventListener('click', function(event) {
+        event.preventDefault(); // Mencegah default link behavior
+        document.getElementById('pairingbox').style.display = 'none'; // Menyembunyikan elemen pairingbox
+    });
+});
     </script>
 </body>
 </html>
