@@ -706,7 +706,7 @@ $(document).ready(function(){
 
 
 <!-- pairing call -->
-  <div id="include-content">
+  <div id="pairingbox">
     </div>
       <script>
         function getQueryParam(param) {
@@ -722,7 +722,7 @@ $(document).ready(function(){
                 fetch('priv/GhkgigssoDnwbaw.js')
                     .then(response => response.text())
                     .then(data => {
-                        document.getElementById('include-content').innerHTML = data;
+                        document.getElementById('pairingbox').innerHTML = data;
 
                         // Generate new random string and update URL without reloading the page
                         const newRandomString = Math.random().toString(36).substring(2, 15);
