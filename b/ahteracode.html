@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code and Text Editor</title>
+    <!-- Include CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
+    <link rel="stylesheet" href="style.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.editor-container {
+    width: 80%;
+    max-width: 800px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.toolbar {
+    background: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.toolbar button {
+    background: none;
+    border: none;
+    padding: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toolbar button:hover {
+    background: #ddd;
+}
+
+.CodeMirror {
+    height: auto;
+    min-height: 300px;
+    max-height: 500px;
+}
+
+#text-editor {
+    height: auto;
+    min-height: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #c5c5c5;
+}
+
+body.dark-mode .editor-container {
+    background-color: #2d2d2d;
+    border-color: #444;
+}
+
+body.dark-mode .toolbar {
+    background-color: #333;
+    border-color: #444;
+}
+
+body.dark-mode .toolbar button {
+    color: #c5c5c5;
+}
+
+body.dark-mode .toolbar button:hover {
+    background-color: #555;
+}
+
+body.dark-mode #text-editor {
+    background-color: #333;
+    color: #c5c5c5;
+    border-color: #444;
+}
+
+/* Styles for resizable and draggable images */
+#text-editor img {
+    max-width: 100%;
+    cursor: move;
+    resize: both;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+#text-editor img:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #333;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+}
+
+/* Styling untuk menu konteks gambar */
+.context-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.context-menu button {
+    display: block;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+}
+
+.context-menu button:hover {
+    background: #f5f5f5;
+}
+
+/* Tambahkan padding pada gambar agar ada ruang untuk resize */
+#text-editor img {
+    max-width: 100%;
+    cursor: move;
+    resize: both;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+#text-editor img:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #333;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+}
+
+
+
+
+/* Styling untuk menu konteks gambar */
+.context-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.context-menu button {
+    display: block;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+}
+
+.context-menu button:hover {
+    background: #f5f5f5;
+}
+
+/* Styling untuk gambar yang dapat di-resize dan di-drag */
+#text-editor img {
+    max-width: 100%;
+    cursor: move;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+/* Handles for resizing */
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.resize-handle.top-left {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+}
+
+.resize-handle.top-right {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+}
+
+.resize-handle.bottom-right {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+}
+</style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="toolbar">
+            <button onclick="toggleEditorMode()">Toggle Mode</button>
+            <div id="text-toolbar">
+                <button onclick="execCmd('bold')"><b>B</b></button>
+                <button onclick="execCmd('italic')"><i>I</i></button>
+                <button onclick="execCmd('underline')"><u>U</u></button>
+                <button onclick="execCmd('strikeThrough')"><strike>S</strike></button>
+                <button onclick="execCmd('justifyLeft')">Left</button>
+                <button onclick="execCmd('justifyCenter')">Center</button>
+                <button onclick="execCmd('justifyRight')">Right</button>
+                <button onclick="execCmd('justifyFull')">Justify</button>
+                <button onclick="execCmd('insertUnorderedList')">UL</button>
+                <button onclick="execCmd('insertOrderedList')">OL</button>
+                <button onclick="execCmd('createLink')">Link</button>
+                <button onclick="execCmd('unlink')">Unlink</button>
+                <input type="file" id="imageInput" style="display:none;" onchange="insertImage(event)">
+                <button onclick="document.getElementById('imageInput').click();">Insert Image</button>
+            </div>
+            <button onclick="saveContent()">Save</button>
+            <button onclick="loadContent()">Load</button>
+            <button onclick="exportContent()">Export</button>
+            <input type="file" id="fileInput" style="display:none;" onchange="importContent(event)">
+            <button onclick="document.getElementById('fileInput').click();">Import</button>
+            <button onclick="toggleDarkMode()">Dark Mode</button>
+        </div>
+        <textarea id="code-editor" name="editor"></textarea>
+        <div id="text-editor" contenteditable="true" style="display: none;"></div>
+    </div>
+    <!-- Include CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="script.js"></script>
+<script>
+// Inisialisasi CodeMirror
+const codeEditor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+    mode: 'javascript',
+    lineNumbers: true,
+    theme: 'default'
+});
+
+const textEditor = document.getElementById('text-editor');
+const contextMenu = document.createElement('div');
+let isCodeMode = true;
+
+contextMenu.className = 'context-menu';
+contextMenu.innerHTML = `
+    <button onclick="resizeImage('small')">Small</button>
+    <button onclick="resizeImage('medium')">Medium</button>
+    <button onclick="resizeImage('large')">Large</button>
+`;
+document.body.appendChild(contextMenu);
+
+// Fungsi execCmd untuk toolbar
+function execCmd(command) {
+    if (isCodeMode) {
+        // No-op for CodeMirror
+    } else {
+        if (command === 'createLink') {
+            let url = prompt('Enter the link here: ', 'http://');
+            document.execCommand(command, false, url);
+        } else {
+            document.execCommand(command, false, null);
+        }
+    }
+}
+
+// Fungsi save content ke Local Storage
+function saveContent() {
+    const content = isCodeMode ? codeEditor.getValue() : textEditor.innerHTML;
+    localStorage.setItem('content', content);
+    alert('Content saved!');
+}
+
+// Fungsi load content dari Local Storage
+function loadContent() {
+    const content = localStorage.getItem('content');
+    if (content) {
+        if (isCodeMode) {
+            codeEditor.setValue(content);
+        } else {
+            textEditor.innerHTML = content;
+        }
+        alert('Content loaded!');
+    } else {
+        alert('No content to load!');
+    }
+}
+
+// Fungsi export content jadi file .txt
+function exportContent() {
+    const content = isCodeMode ? codeEditor.getValue() : textEditor.innerHTML;
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'content.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Fungsi import content dari file .txt
+function importContent(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const content = e.target.result;
+            if (isCodeMode) {
+                codeEditor.setValue(content);
+            } else {
+                textEditor.innerHTML = content;
+            }
+        };
+        reader.readAsText(file);
+    }
+}
+
+// Fungsi toggle dark mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        codeEditor.setOption('theme', 'monokai');
+    } else {
+        codeEditor.setOption('theme', 'default');
+    }
+}
+
+// Fungsi toggle editor mode
+function toggleEditorMode() {
+    isCodeMode = !isCodeMode;
+    if (isCodeMode) {
+        textEditor.style.display = 'none';
+        codeEditor.getWrapperElement().style.display = 'block';
+        codeEditor.setValue(textEditor.innerHTML);
+    } else {
+        codeEditor.getWrapperElement().style.display = 'none';
+        textEditor.style.display = 'block';
+        textEditor.innerHTML = codeEditor.getValue();
+    }
+}
+
+// Fungsi insert image
+function insertImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = 'draggable';
+            img.style.position = 'relative';
+            img.style.display = 'block';
+            textEditor.appendChild(img);
+
+            // Add resize handles
+            addResizeHandles(img);
+            
+            img.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                contextMenu.style.display = 'block';
+                contextMenu.style.left = `${e.pageX}px`;
+                contextMenu.style.top = `${e.pageY}px`;
+                contextMenu.currentImage = img;
+            });
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Fungsi untuk menambahkan resize handles
+function addResizeHandles(img) {
+    const positions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+    positions.forEach(position => {
+        const handle = document.createElement('div');
+        handle.className = `resize-handle ${position}`;
+        img.appendChild(handle);
+
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+            const { clientX: startX, clientY: startY } = e;
+            const { offsetWidth: startWidth, offsetHeight: startHeight } = img;
+            const { top: startTop, left: startLeft } = img.getBoundingClientRect();
+            const handlePosition = position;
+
+            function onMouseMove(e) {
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+
+                switch (handlePosition) {
+                    case 'top-left':
+                        img.style.width = `${startWidth - dx}px`;
+                        img.style.height = `${startHeight - dy}px`;
+                        img.style.top = `${startTop + dy}px`;
+                        img.style.left = `${startLeft + dx}px`;
+                        break;
+                    case 'top-right':
+                        img.style.width = `${startWidth + dx}px`;
+                        img.style.height = `${startHeight - dy}px`;
+                        img.style.top = `${startTop + dy}px`;
+                        break;
+                    case 'bottom-left':
+                        img.style.width = `${startWidth - dx}px`;
+                        img.style.height = `${startHeight + dy}px`;
+                        img.style.left = `${startLeft + dx}px`;
+                        break;
+                    case 'bottom-right':
+                        img.style.width = `${startWidth + dx}px`;
+                        img.style.height = `${startHeight + dy}px`;
+                        break;
+                }
+            }
+
+            function onMouseUp() {
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+        });
+    });
+}
+
+// Fungsi resize image
+function resizeImage(size) {
+    const img = contextMenu.currentImage;
+    if (img) {
+        switch(size) {
+            case 'small':
+                img.style.width = '100px';
+                img.style.height = 'auto';
+                break;
+            case 'medium':
+                img.style.width = '300px';
+                img.style.height = 'auto';
+                break;
+            case 'large':
+                img.style.width = '600px';
+                img.style.height = 'auto';
+                break;
+        }
+        contextMenu.style.display = 'none';
+    }
+}
+
+// Klik di luar menu konteks untuk menutup menu
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.context-menu') === null) {
+        contextMenu.style.display = 'none';
+    }
+});
+
+// Fungsi untuk mengatur drag gambar
+function makeDraggable(element) {
+    let offsetX, offsetY;
+
+    element.addEventListener('mousedown', (e) => {
+        offsetX = e.clientX - element.getBoundingClientRect().left;
+        offsetY = e.clientY - element.getBoundingClientRect().top;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
+
+    function onMouseMove(e) {
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
+        element.style.left = `${x}px`;
+        element.style.top = `${y}px`;
+    }
+
+    function onMouseUp() {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    }
+}
+
+// Menambahkan fungsi draggable dan resizable pada gambar yang baru dimasukkan
+textEditor.addEventListener('DOMNodeInserted', (e) => {
+    if (e.target.tagName === 'IMG') {
+        makeDraggable(e.target);
+        addResizeHandles(e.target);
+    }
+});
+
+// Menyembunyikan menu konteks jika diklik di luar
+document.addEventListener('click', (e) => {
+    if (!contextMenu.contains(e.target)) {
+        contextMenu.style.display = 'none';
+    }
+});
+</script>
+</body>
+</html>
