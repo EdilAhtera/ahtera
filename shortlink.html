@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading..</title>
     <style>
         /* CSS */
         body {
@@ -59,7 +62,7 @@
                 if (progress < 100) {
                     progress += 1; // Increment progress
                     progressBar.style.width = progress + '%'; // Update progress bar width
-                    setTimeout(updateProgress, 450); // Update every 450ms (45 detik total)
+                    setTimeout(updateProgress, 100); // Update every 100ms (45 detik total)
                 } else {
                     setTimeout(() => {
                         const urlParams = new URLSearchParams(window.location.search);
