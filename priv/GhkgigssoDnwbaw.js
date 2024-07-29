@@ -1,6 +1,7 @@
  <style>
         /* Style untuk pairingbox */
         .pairingbox {
+z-index: 1000;
             position: fixed;
             bottom: 10px; /* Jarak dari bawah layar */
             left: 10px; /* Jarak dari tepi kiri layar */
