@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shortlink</title>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Redirect ke index.html dengan parameter showPairingbox=true setelah 3 detik
-            setTimeout(function() {
-                const redirectUrl = `/ahtera?showPairingbox=true`;
-                window.location.href = redirectUrl;
-            }, 1000); // 3 detik
-        });
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        window.onload = function() {
+            const randomString = generateRandomString(10);
+            const url = `index.html?${randomString}&id=GhkgigssoDnwbaw`;
+            window.location.href = url;
+        };
     </script>
 </head>
 <body>
+    Redirecting...
 </body>
 </html>
