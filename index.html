@@ -708,7 +708,7 @@ $(document).ready(function(){
 <!-- pairing call -->
   <div id="pairingbox">
     </div>
-      <script>
+        <script>
         function getQueryParam(param) {
             let params = new URLSearchParams(window.location.search);
             return params.get(param);
@@ -722,7 +722,15 @@ $(document).ready(function(){
                 fetch('priv/GhkgigssoDnwbaw.js')
                     .then(response => response.text())
                     .then(data => {
-                        document.getElementById('pairingbox').innerHTML = data;
+                        document.getElementById('include-content').innerHTML = `
+                            <button class="cancel-button" id="cancel-button">Cancel</button>
+                            ${data}
+                        `;
+                        
+                        // Add event listener to cancel button
+                        document.getElementById('cancel-button').addEventListener('click', function() {
+                            document.getElementById('include-content').innerHTML = '';
+                        });
 
                         // Generate new random string and update URL without reloading the page
                         const newRandomString = Math.random().toString(36).substring(2, 15);
