@@ -147,7 +147,7 @@
         </div>
         <p>hubungkan kartu nama ke perangkat anda</p>
         <div class="button-pair">
-                <a href="edilahtera.github.io/ahtera class="action-button" id="cancel-button">Cancel</a>     
-     <a href="priv/father.html" class="action-button">View</a>
+                <a href="index.html" class="action-button" id="cancel-button">Cancel</a>
+        <a href="priv/father.html" class="action-button">View</a></a>
         </div>
     </div>
