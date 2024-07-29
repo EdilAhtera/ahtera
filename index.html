@@ -722,14 +722,14 @@ $(document).ready(function(){
                 fetch('priv/GhkgigssoDnwbaw.js')
                     .then(response => response.text())
                     .then(data => {
-                        document.getElementById('include-content').innerHTML = `
+                        document.getElementById('pairingbox').innerHTML = `
                             <button class="cancel-button" id="cancel-button">Cancel</button>
                             ${data}
                         `;
                         
                         // Add event listener to cancel button
                         document.getElementById('cancel-button').addEventListener('click', function() {
-                            document.getElementById('include-content').innerHTML = '';
+                            document.getElementById('pairingbox').innerHTML = '';
                         });
 
                         // Generate new random string and update URL without reloading the page
