@@ -1,10 +1,10 @@
 {
     "name": "ahtera",
     "short_name": "ahtera",
-    "start_url": "/index.html",
+    "start_url": "edilahtera.github.io/ahtera/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "theme_color": "#ffffff",
     "icons": [
         {
             "src": "https://raw.githubusercontent.com/EdilAhtera/ahtera/main/images/1721920698531.png",
