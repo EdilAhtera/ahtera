@@ -2,8 +2,18 @@ const CACHE_NAME = 'ahtera-cache-v1';
 const urlsToCache = [
     '/',
     '/index.html',
-    '/styles.css',
+    'edilahtera.github.io/ahtera/index.html',
     '/script.js',
+    '/footer.html',
+    '/header.html',
+    '/contact-us.html',
+    '/b/about-us.html',
+    '/b/media-assets.html',
+    'edilahtera.github.io/ahtera/footer.html',
+    'edilahtera.github.io/ahtera/header.html',
+    'edilahtera.github.io/ahtera/contact-us.html',
+    'edilahtera.github.io/ahtera/b/about-us.html',
+    'edilahtera.github.io/ahtera/b/media-assets.html',
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png'
 ];
