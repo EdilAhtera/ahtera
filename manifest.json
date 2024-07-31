@@ -1,7 +1,7 @@
 {
     "name": "ahtera",
     "short_name": "ahtera",
-    "start_url": "edilahtera.github.io/ahtera/index.html",
+    "start_url": "ahtera/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
