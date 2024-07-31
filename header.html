@@ -193,7 +193,70 @@
                 display: flex; /* Tampilkan header2 saat active */
             }
         }
+
+/* Header */
+.header {
+  width: 100%;
+  height: 60px; /* Sesuaikan dengan tinggi header lo */
+  background-color: #fff;
+  position: relative;
+  z-index: 1001; /* Agar header tetap di atas notification bar */
+}
+
+/* Notification Bar */
+.notification-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e0e0e0;
+  color: #000;
+  padding: 5px 10px;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 60px; /* Sama dengan tinggi header */
+  left: 0;
+  z-index: 1000; /* Agar notification bar di bawah header */
+}
+
+.notification-bar .get-text {
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 10px;
+}
+
+.notification-bar .message {
+  flex: 1;
+}
+
+.notification-bar .install-link {
+  text-decoration: underline;
+color: black;
+}
+
+.notification-bar .close-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .notification-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notification-bar .message {
+    margin-top: 5px;
+  }
+}
 </style>
+
 
 <header class="header1">
     <a href="https://example.com" class="logo">
@@ -224,6 +287,25 @@
         <a href="#contact">Contact</a>
     </nav>
 </header>
+
+  <!-- Konten header lo di sini -->
+<div class="notification-bar" id="notificationBar">
+  <span class="get-text">Get</span>
+  <span class="message">Sekarang aplikasi kami tersedia, <a href="#" class="install-link">install sekarang!</a></span>
+  <button class="close-btn" id="closeBtn">&times;</button>
+</div>
+<!-- Js close notif -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const closeBtn = document.getElementById('closeBtn');
+  const notificationBar = document.getElementById('notificationBar');
+
+  closeBtn.addEventListener('click', function() {
+    notificationBar.style.display = 'none';
+  });
+});
+</script>
+<!-- end Js notif -->
 
 <script>
     $(document).ready(function(){
