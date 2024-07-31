@@ -213,10 +213,10 @@
   padding: 5px 10px;
   width: 100%;
   height: 30px;
-  font-size: 4px;
+  font-size: 14px;
   box-sizing: border-box;
   position: fixed;
-  top: 50px; /* Sama dengan tinggi header */
+  top: 60px; /* Sama dengan tinggi header */
   left: 0;
   z-index: 1000; /* Agar notification bar di bawah header */
 }
@@ -231,11 +231,24 @@
 
 .notification-bar .message {
   flex: 1;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Agar teks tidak wrap */
+  overflow: hidden;
 }
 
 .notification-bar .install-link {
-  text-decoration: underline;
-color: black;
+  text-decoration: none;
+  color: #000; /* Semua tulisan berwarna hitam */
+  display: flex;
+  align-items: center;
+}
+
+.notification-bar .install-link .arrow-icon {
+  margin-left: 5px;
+  width: 16px;
+  height: 16px;
+  fill: #000; /* Warna panah hitam */
 }
 
 .notification-bar .close-btn {
@@ -245,10 +258,23 @@ color: black;
   cursor: pointer;
 }
 
+.header {
+  width: 100%;
+  height: 60px; /* Sesuaikan dengan tinggi header lo */
+  background-color: #fff;
+  position: relative;
+  z-index: 1001; /* Agar header tetap di atas notification bar */
+}
+
 @media (max-width: 768px) {
   .notification-bar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .notification-bar .message {
+    margin-top: 5px;
+    white-space: normal; /* Agar teks wrap pada layar kecil */
   }
 }
 </style>
