@@ -56,3 +56,16 @@ toggleFormButton.addEventListener('click', () => {
         toggleFormButton.textContent = 'Switch to Login';
     }
 });
+
+
+toggleFormButton.addEventListener('click', () => {
+    console.log('Toggle button clicked'); // Debugging log
+    isLogin = !isLogin;
+    if (isLogin) {
+        formTitle.textContent = 'Login';
+        toggleFormButton.textContent = 'Switch to Register';
+    } else {
+        formTitle.textContent = 'Register';
+        toggleFormButton.textContent = 'Switch to Login';
+    }
+});
