@@ -69,3 +69,8 @@ toggleFormButton.addEventListener('click', () => {
         toggleFormButton.textContent = 'Switch to Login';
     }
 });
+
+console.log = function(message) {
+  // Kirim log ke server atau tambahkan ke elemen HTML
+  document.getElementById('log').innerText += message + '\n';
+}
