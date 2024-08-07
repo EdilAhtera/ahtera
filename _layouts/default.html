@@ -5,34 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | Your Blog Name</title>
     <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <link rel="icon" href="favicon.png" type="image/png">
-    <style>
-    body {
-      margin: 0;
-      padding: 0;
-        padding-top:40px;
-      font-family: "Poppins", sans-serif;
-      background-color: #FFFFFF;
-    }
-        /* Buat ngehilangin tap highlight di iOS */
-* {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+<style>
+    /* Card Style */
+.card {
+    background-color: #ffffff; /* Warna latar belakang putih */
+    border-radius: 1.5rem; /* Sudut bundar */
+    overflow: hidden; /* Menghindari elemen melampaui batas kartu */
+    padding: 1.5rem; /* Padding di dalam kartu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    max-width: 100%; /* Agar kartu tidak melebihi lebar konten */
+    margin: 0 auto; /* Centering kartu jika perlu */
+    margin-bottom: 2rem; /* Jarak bawah antar card */
 }
 
-/* Buat ngehilangin focus outline di semua browser */
-:focus {
-  outline: none;
+/* Judul dalam card */
+.card h2 {
+    font-size: 1.5rem; /* Ukuran font judul */
+    font-weight: bold; /* Judul tebal */
+    margin-bottom: 0.5rem; /* Jarak bawah judul */
 }
-  </style>
+
+/* Paragraf dalam card */
+.card p {
+    color: #4a5568; /* Warna teks abu-abu */
+    margin-bottom: 1rem; /* Jarak bawah paragraf */
+}
+
+/* ID 1 Style - Jika ada elemen khusus dengan ID 'id1' */
+#id1 {
+    color: #e53e3e; /* Warna teks khusus */
+    font-style: italic; /* Italic untuk elemen dengan ID 1 */
+}
+</style>
 </head>
 <body>
     {% include header.html %}
     <main>
-        {{ content }}
+        {% if page.layout == "default" %}
+            <div class="card">
+                <h2 class="text-2xl font-bold mb-2">{{ page.title }}</h2>
+                {{ content }}
+            </div>
+        {% else %}
+            {{ content }}
+        {% endif %}
     </main>
     {% include footer.html %}
 </body>
