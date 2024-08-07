@@ -23,27 +23,37 @@
 :focus {
   outline: none;
 }
-    .card {
-      transition: border-radius 0.3s ease;
-      box-shadow: none; /* Menghapus bayangan */
-    }
-    .card:active {
-      border-radius: 50px;
-    }
+/* Style untuk card */
+.card {
+    transition: border-radius 0.3s ease, box-shadow 0.3s ease; /* Animasi untuk border-radius dan box-shadow */
+    background-color: #ffffff; /* Warna latar belakang putih */
+    border-radius: 1.5rem; /* Sudut bundar */
+    overflow: hidden; /* Menghindari elemen melampaui batas kartu */
+    padding: 1.5rem; /* Padding di dalam kartu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    margin-bottom: 2rem; /* Jarak bawah antar card */
+}
 
+/* Style saat card dalam keadaan active */
+.card:active {
+    border-radius: 50px; /* Mengubah sudut bundar saat card di-klik */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam saat card di-klik */
+}
 
-
+/* Style untuk card-container */
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 card per baris di desktop */
-  gap: 16px; /* Jarak antar card */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 card per baris di desktop */
+    gap: 16px; /* Jarak antar card */
+    margin: 0 auto; /* Centering card-container jika perlu */
+    max-width: 1200px; /* Lebar maksimum card-container */
 }
 
 /* Media query untuk mobile */
 @media (max-width: 767px) {
-  .card-container {
-    grid-template-columns: 1fr; /* 1 card per baris di mobile */
-  }
+    .card-container {
+        grid-template-columns: 1fr; /* 1 card per baris di mobile */
+    }
 }
 </style>
 </head>
