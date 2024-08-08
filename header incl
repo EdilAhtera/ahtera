@@ -1,0 +1,25 @@
+<div id="include-header"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'header.html', true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('include-header').innerHTML = xhr.responseText;
+
+                        // Setelah header dimuat, inisialisasi burger menu
+                        $('#nav-icon4').click(function(){
+                            $(this).toggleClass('open');
+                            $('.header2').toggleClass('active');
+                        });
+                    } else {
+                        console.error('Failed to load header.html:', xhr.status, xhr.statusText);
+                    }
+                }
+            };
+            xhr.send();
+        });
+    </script>
