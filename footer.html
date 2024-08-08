@@ -178,3 +178,14 @@ We collaborate closely with clients to gain a deep understanding of their needs 
 <div class="copyright" style="color:gray;">
     &copy; 2017 - 2024 Ahtera Studio. All rights reserved.
 </div>
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Cek referrer
+            if (document.referrer === "") {
+                // Kalo referrer kosong, redirect ke halaman lain
+                window.location.replace("https://edilahtera.github.io/ahtera/404");
+            }
+        });
+    </script>
