@@ -240,3 +240,14 @@
         });
     });
 </script>
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Cek referrer
+            if (document.referrer === "") {
+                // Kalo referrer kosong, redirect ke halaman lain
+                window.location.replace("https://edilahtera.github.io/ahtera/404");
+            }
+        });
+    </script>
