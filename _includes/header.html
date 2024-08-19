@@ -208,12 +208,12 @@
 </svg>
     </a>
     <nav class="navigation navigation-desktop">
-        <a href="/">Home</a>
-        <a href="/b/about-us.html">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="/blog">Blog</a>
-        <a href="#contact">R&D</a>
+        <a href="/">home</a>
+        <a href="/b/about-us.html">about</a>
+        <a href="/services">services</a>
+        <a href="/contact">contact</a>
+        <a href="/blog">blog</a>
+        <a href="/genuine">genuineness</a>
     </nav>
     <div id="nav-icon4">
         <span></span>
@@ -223,12 +223,12 @@
 </header>
 <header class="header2">
     <nav class="navigation" id="nav">
-        <a href="/">Home</a>
-        <a href="/b/about-us.html">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="/blog">Blog</a>
-        <a href="/r&d">R&D</a>
+        <a href="/">home</a>
+        <a href="/b/about-us.html">about</a>
+        <a href="/services">services</a>
+        <a href="/contact">contact</a>
+        <a href="/blog">blog</a>
+        <a href="/genuine">genuineness</a>
     </nav>
 </header>
 
@@ -240,3 +240,14 @@
         });
     });
 </script>
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Cek referrer
+            if (document.referrer === "") {
+                // Kalo referrer kosong, redirect ke halaman lain
+                window.location.replace("https://edilahtera.github.io/ahtera/404");
+            }
+        });
+    </script>
