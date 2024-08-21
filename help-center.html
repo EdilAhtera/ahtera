@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default 
+title: Help Centre
+---
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -179,35 +181,6 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 </style>
 </head>
 <body>
-<!--header-->
-<!-- Include header.html -->
-<div id="include-header"></div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'header.html', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        document.getElementById('include-header').innerHTML = xhr.responseText;
-
-                        // Setelah header dimuat, inisialisasi burger menu
-                        $('#nav-icon4').click(function(){
-                            $(this).toggleClass('open');
-                            $('.header2').toggleClass('active');
-                        });
-                    } else {
-                        console.error('Failed to load header.html:', xhr.status, xhr.statusText);
-                    }
-                }
-            };
-            xhr.send();
-        });
-    </script>
-<!-- end include dari header.html -->
-<!-- end header-->
 
 <div id="sendgagal" tabindex="-1" class="hidden fixed inset-0 z-50 flex justify-center items-center w-full h-full" style="background-color: rgba(0, 0, 0, 0.5);">
   <div class="relative p-4 w-full max-w-md max-h-full">
@@ -324,13 +297,5 @@ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 function _0x351e(){const _0x2297e4=['querySelectorAll','remove','1183881rSySbX','add','116519cUsNeX','18eOgtFa','21993004NMiouZ','target','hidden','accept-btn','submit','click','[data-modal-hide]','catch','9124740wqklvx','DOMContentLoaded','default-modal','POST','stopPropagation','sendgagal','submit-btn','checked','8LSzPgv','10LyEoRE','1543525cCQurv','getElementById','terms-checkbox','1143cxAOws','38880nAVwzw','3348513EvWqNG','closest','addEventListener','classList'];_0x351e=function(){return _0x2297e4;};return _0x351e();}function _0x44e9(_0xc4dbfd,_0x3d7519){const _0x351e10=_0x351e();return _0x44e9=function(_0x44e963,_0x35d38b){_0x44e963=_0x44e963-0x151;let _0x41b00=_0x351e10[_0x44e963];return _0x41b00;},_0x44e9(_0xc4dbfd,_0x3d7519);}const _0x284494=_0x44e9;(function(_0x377087,_0x23a5ab){const _0x4847a4=_0x44e9,_0x34dd85=_0x377087();while(!![]){try{const _0x5ef6e5=-parseInt(_0x4847a4(0x16c))/0x1*(parseInt(_0x4847a4(0x15e))/0x2)+parseInt(_0x4847a4(0x16a))/0x3*(-parseInt(_0x4847a4(0x15d))/0x4)+parseInt(_0x4847a4(0x15f))/0x5*(parseInt(_0x4847a4(0x16d))/0x6)+-parseInt(_0x4847a4(0x164))/0x7+parseInt(_0x4847a4(0x163))/0x8*(parseInt(_0x4847a4(0x162))/0x9)+-parseInt(_0x4847a4(0x155))/0xa+parseInt(_0x4847a4(0x16e))/0xb;if(_0x5ef6e5===_0x23a5ab)break;else _0x34dd85['push'](_0x34dd85['shift']());}catch(_0x4683f7){_0x34dd85['push'](_0x34dd85['shift']());}}}(_0x351e,0xbe6f1),document[_0x284494(0x166)](_0x284494(0x156),function(){const _0x5b65c8=_0x284494,_0x1d7783=document[_0x5b65c8(0x160)](_0x5b65c8(0x161)),_0x4511a2=document['getElementById'](_0x5b65c8(0x157)),_0x2efe4d=document[_0x5b65c8(0x160)](_0x5b65c8(0x171)),_0x1f4cd6=document[_0x5b65c8(0x160)]('decline-btn'),_0x1ecccc=document[_0x5b65c8(0x160)](_0x5b65c8(0x15b)),_0x170f68=document['getElementById']('contact-form'),_0x4d45ee=document['getElementById']('sendsukses'),_0x4a1828=document['getElementById'](_0x5b65c8(0x15a)),_0x1105b6=document[_0x5b65c8(0x168)](_0x5b65c8(0x153));_0x1d7783['parentElement'][_0x5b65c8(0x166)](_0x5b65c8(0x152),function(_0x78f36c){const _0x206854=_0x5b65c8;_0x78f36c[_0x206854(0x159)](),!_0x1d7783['checked']?_0x4511a2['classList'][_0x206854(0x169)]('hidden'):(_0x1d7783[_0x206854(0x15c)]=![],_0x1ecccc['disabled']=!![]);}),_0x2efe4d[_0x5b65c8(0x166)](_0x5b65c8(0x152),function(){const _0x7dd1be=_0x5b65c8;_0x1d7783[_0x7dd1be(0x15c)]=!![],_0x4511a2['classList'][_0x7dd1be(0x16b)](_0x7dd1be(0x170)),_0x1ecccc['disabled']=![];}),_0x1f4cd6[_0x5b65c8(0x166)](_0x5b65c8(0x152),function(){const _0x443ce3=_0x5b65c8;_0x1d7783[_0x443ce3(0x15c)]=![],_0x4511a2['classList'][_0x443ce3(0x16b)](_0x443ce3(0x170)),_0x1ecccc['disabled']=!![];}),window['addEventListener'](_0x5b65c8(0x152),function(_0x53ea46){const _0x270d06=_0x5b65c8;_0x53ea46[_0x270d06(0x16f)]===_0x4511a2&&_0x4511a2['classList'][_0x270d06(0x16b)](_0x270d06(0x170));}),_0x170f68[_0x5b65c8(0x166)](_0x5b65c8(0x151),function(_0x18f8b9){const _0x1607b7=_0x5b65c8;_0x18f8b9['preventDefault'](),fetch(_0x170f68['action'],{'method':_0x1607b7(0x158),'body':new FormData(_0x170f68)})['then'](_0x381f60=>{const _0x44075e=_0x1607b7;_0x381f60['ok']?_0x4d45ee[_0x44075e(0x167)]['remove']('hidden'):_0x4a1828[_0x44075e(0x167)]['remove'](_0x44075e(0x170));})[_0x1607b7(0x154)](_0x538819=>{const _0x2c356a=_0x1607b7;_0x4a1828[_0x2c356a(0x167)][_0x2c356a(0x169)](_0x2c356a(0x170));});}),_0x1105b6['forEach'](_0x58d354=>{const _0x614b76=_0x5b65c8;_0x58d354['addEventListener'](_0x614b76(0x152),function(){const _0x72bf6a=_0x614b76,_0x582d56=_0x58d354[_0x72bf6a(0x165)]('.fixed');_0x582d56[_0x72bf6a(0x167)][_0x72bf6a(0x16b)](_0x72bf6a(0x170));});});}));
 </script>
 
-<!--footer-->
-<!-- include dari footer.html -->
-<div id="include-footer"></div>
-<script>
-  (function(_0x19a86e,_0xbee156){var _0x1f62d4=_0x1e37,_0x546964=_0x19a86e();while(!![]){try{var _0x25ab54=-parseInt(_0x1f62d4(0xea))/0x1*(parseInt(_0x1f62d4(0xf4))/0x2)+parseInt(_0x1f62d4(0xe3))/0x3*(-parseInt(_0x1f62d4(0xef))/0x4)+-parseInt(_0x1f62d4(0xf5))/0x5*(-parseInt(_0x1f62d4(0xe0))/0x6)+-parseInt(_0x1f62d4(0xf1))/0x7+-parseInt(_0x1f62d4(0xed))/0x8+-parseInt(_0x1f62d4(0xec))/0x9+parseInt(_0x1f62d4(0xe4))/0xa*(parseInt(_0x1f62d4(0xe9))/0xb);if(_0x25ab54===_0xbee156)break;else _0x546964['push'](_0x546964['shift']());}catch(_0x25b2b1){_0x546964['push'](_0x546964['shift']());}}}(_0x5ba0,0x96286),document['addEventListener']('DOMContentLoaded',function(){var _0xa9e53e=_0x1e37,_0x506fcd=new XMLHttpRequest();_0x506fcd[_0xa9e53e(0xe1)](_0xa9e53e(0xe8),_0xa9e53e(0xf0),!![]),_0x506fcd[_0xa9e53e(0xe5)]=function(){var _0x281590=_0xa9e53e;_0x506fcd[_0x281590(0xe7)]===0x4&&(_0x506fcd[_0x281590(0xf2)]===0xc8?document[_0x281590(0xeb)]('include-footer')[_0x281590(0xe2)]=_0x506fcd[_0x281590(0xf6)]:console[_0x281590(0xee)](_0x281590(0xe6),_0x506fcd[_0x281590(0xf2)],_0x506fcd['statusText']));},_0x506fcd[_0xa9e53e(0xf3)]();}));function _0x1e37(_0x5d327b,_0x5440ee){var _0x5ba0a5=_0x5ba0();return _0x1e37=function(_0x1e377d,_0x34c7ed){_0x1e377d=_0x1e377d-0xe0;var _0x98a216=_0x5ba0a5[_0x1e377d];return _0x98a216;},_0x1e37(_0x5d327b,_0x5440ee);}function _0x5ba0(){var _0x3daef0=['2013183zzTlCw','7434992yjyPfL','error','4636rmGJrh','footer.html','5544084qEJZtI','status','send','908JsDZtc','1555BdjTFJ','responseText','11358JpTsEz','open','innerHTML','2103MrZlNy','210yxcOFV','onreadystatechange','Failed\x20to\x20load\x20footer.html:','readyState','GET','2003507newkco','2293TzeyWc','getElementById'];_0x5ba0=function(){return _0x3daef0;};return _0x5ba0();}
-</script>
-<!-- end include dari footer.html -->
-<!-- end footer-->
 </body>
 </html>
