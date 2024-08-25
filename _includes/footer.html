@@ -1,3 +1,93 @@
+<style>
+/* footer */
+/* footer */
+.footer {
+background: #f0f0f0;
+  padding: 40px 20px;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer .column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer .column h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.footer .column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .column ul li {
+  margin-bottom: 10px;
+}
+
+.footer .column ul li a {
+  color: gray;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer .column ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer .social-links a {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.footer .social-links a:hover {
+  color: gray;
+}
+
+.footer .copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: gray;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer .column {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .footer .column ul {
+    padding-left: 0; /* Menghapus padding kiri di mobile */
+  }
+}
+
+
+
+</style>
+
 <!-- footer -->
 <footer class="footer">
   <div class="container">
