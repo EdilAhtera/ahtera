@@ -1,6 +1,6 @@
 <!-- footer -->
-<footer class="bg-gray-200 py-10 px-5">
-  <div class="max-w-screen-xl mx-auto flex flex-wrap gap-5">
+<footer class="bg-gray-100 py-10 px-5">
+  <div class="container mx-auto flex flex-wrap gap-5">
     <div class="flex-1 min-w-[200px]">
       <h3 class="text-lg font-bold text-black mb-5">Company</h3>
       <ul class="list-none p-0 m-0">
@@ -30,35 +30,37 @@
     <div class="flex-1 min-w-[200px]">
       <h3 class="text-lg font-bold text-black mb-5">Follow Us</h3>
       <div class="flex gap-4">
-        <a href="#" aria-label="GitHub" class="text-black text-2xl hover:text-gray-500">
+        <a href="#" aria-label="GitHub" class="text-black text-xl hover:text-gray-500">
           <!-- f -->
         </a>
-        <a href="#" aria-label="Twitter X" class="text-black text-2xl hover:text-gray-500">
+        <a href="#" aria-label="Twitter X" class="text-black text-xl hover:text-gray-500">
           <!-- f -->
         </a>
-        <a href="https://www.linkedin.com/company/ahtera/" aria-label="LinkedIn" class="text-black text-2xl hover:text-gray-500">
+        <a href="https://www.linkedin.com/company/ahtera/" aria-label="LinkedIn" class="text-black text-xl hover:text-gray-500">
           <!-- f -->
         </a>
-        <a href="#" aria-label="Instagram" class="text-black text-2xl hover:text-gray-500">
+        <a href="#" aria-label="Instagram" class="text-black text-xl hover:text-gray-500">
           <!-- f -->
         </a>
-        <a href="#" aria-label="Pinterest" class="text-black text-2xl hover:text-gray-500">
+        <a href="#" aria-label="Pinterest" class="text-black text-xl hover:text-gray-500">
           <!-- f -->
         </a>
       </div>
     </div>
   </div>
-  <div class="mt-7 text-center text-gray-500 text-xs">
-    <img src="https://raw.githubusercontent.com/EdilAhtera/ahtera/main/images/1723537792379.png" alt="img png" class="w-auto h-12 mx-auto">
-    <p class="text-left text-xs uppercase">About Ahtera</p>
-    <p class="text-left text-xs uppercase text-gray-500">Ahtera Studio is a leading development studio specializing in integrated digital solutions, including web development, application development, and graphic design. Committed to delivering the highest quality, Ahtera Studio combines innovation with the latest technology in every project we undertake. Our team of professionals, consisting of designers, developers, and strategists, works collaboratively to provide creative solutions that meet your business needs. We strive to deliver results that not only meet but exceed client expectations, ensuring that every product we develop perfectly represents your company's identity and vision.</p>
+
+  <div class="flex flex-col items-start mt-10">
+    <img src="https://raw.githubusercontent.com/EdilAhtera/ahtera/main/images/1723537792379.png" alt="img png" class="w-auto" style="height:50px;">
+    <p class="text-left text-xs text-gray-500 uppercase">About Ahtera</p>
+    <p class="text-left text-xs text-gray-500 uppercase">Ahtera Studio is a leading development studio specializing in integrated digital solutions, including web development, application development, and graphic design. Committed to delivering the highest quality, Ahtera Studio combines innovation with the latest technology in every project we undertake. Our team of professionals, consisting of designers, developers, and strategists, works collaboratively to provide creative solutions that meet your business needs. We strive to deliver results that not only meet but exceed client expectations, ensuring that every product we develop perfectly represents your company's identity and vision.</p>
     <p class="text-left text-sm text-gray-500">#BeyondBordersWithAhtera</p>
   </div>
-  <div class="text-center text-gray-500 text-xs mt-8">
+
+  <div class="text-center text-gray-500 mt-7 text-sm">
     &copy; 2017 - <span id="year"></span> Ahtera. All rights reserved.
   </div>
 </footer>
 
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
