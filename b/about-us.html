@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: About Us
+---
+
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -8,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"  rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
   <script src="../redirect.js"></script> <!-- Pastikan path ke redirect.js benar -->
   <style>
@@ -24,35 +27,6 @@
 </style>
 </head>
 <body>
-<!--header-->
-<!-- Include header.html -->
-<div id="include-header"></div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '../header.html', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        document.getElementById('include-header').innerHTML = xhr.responseText;
-
-                        // Setelah header dimuat, inisialisasi burger menu
-                        $('#nav-icon4').click(function(){
-                            $(this).toggleClass('open');
-                            $('.header2').toggleClass('active');
-                        });
-                    } else {
-                        console.error('Failed to load header.html:', xhr.status, xhr.statusText);
-                    }
-                }
-            };
-            xhr.send();
-        });
-    </script>
-<!-- end include dari header.html -->
-<!-- end header-->
 
 <section class="bg-white">
     <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
@@ -72,28 +46,4 @@
     </div>
 </section>
 
-
-<!--footer-->
-<!-- include dari footer.html -->
-<div id="include-footer"></div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '../footer.html', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    document.getElementById('include-footer').innerHTML = xhr.responseText;
-                } else {
-                    console.error('Failed to load footer.html:', xhr.status, xhr.statusText);
-                }
-            }
-        };
-        xhr.send();
-    });
-</script>
-<!-- end include dari footer.html -->
-<!-- end footer-->
 </body>
-</html>
