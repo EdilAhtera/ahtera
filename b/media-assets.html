@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Media Assets
+---
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -37,36 +40,6 @@
 <body>
 
 
-
-<!--header-->
-<!-- Include header.html -->
-<div id="include-header"></div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '../header.html', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        document.getElementById('include-header').innerHTML = xhr.responseText;
-
-                        // Setelah header dimuat, inisialisasi burger menu
-                        $('#nav-icon4').click(function(){
-                            $(this).toggleClass('open');
-                            $('.header2').toggleClass('active');
-                        });
-                    } else {
-                        console.error('Failed to load header.html:', xhr.status, xhr.statusText);
-                    }
-                }
-            };
-            xhr.send();
-        });
-    </script>
-<!-- end include dari header.html -->
-<!-- end header-->
 
 <!-- info assets -->
 <div class="info-assets bg-gray-100">
@@ -187,29 +160,6 @@
 <!--end tab-->
 
 
-<!--footer-->
-<!-- include dari footer.html -->
-<div id="include-footer"></div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '../footer.html', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    document.getElementById('include-footer').innerHTML = xhr.responseText;
-                } else {
-                    console.error('Failed to load footer.html:', xhr.status, xhr.statusText);
-                }
-            }
-        };
-        xhr.send();
-    });
-</script>
-<!-- end include dari footer.html -->
-<!-- end footer-->
-
 
 <style>
 const tabsElement = document.getElementById('tabs-example');
@@ -259,4 +209,3 @@ const instanceOptions = {
 
 
 </body>
-</html>
