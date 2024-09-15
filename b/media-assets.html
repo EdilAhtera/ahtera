@@ -35,27 +35,10 @@ title: Media Assets
     margin-top: 20px; /* Margin di atas */
 }
 
-/* Tambahkan CSS untuk tab aktif */
-.tab-active {
-  background-color: #afe507 !important;
-  color: #fff; /* Ubah warna teks jika diperlukan */
-}
 </style>
 </head>
 <body>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const tabs = document.querySelectorAll('[role="tab"]');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      tabs.forEach(t => t.classList.remove('tab-active'));
-      tab.classList.add('tab-active');
-    });
-  });
-});
-</script>
 
 <!-- info assets -->
 <div class="info-assets" style="background-color: #AFE507;">
