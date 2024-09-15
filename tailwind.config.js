@@ -34,6 +34,7 @@ tailwind.config = {
         'custom-black': '#0e0e0e'
       }
     },
+},
     fontFamily: {
       'body': [
     'Inter', 
