@@ -6,66 +6,96 @@ title: Ahtera Studio
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotak dengan Tailwind</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- Link ke CSS eksternal -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"> <!-- Import font Poppins -->
     <style>
-        .bg-kotak-1 { background-color: #AFE507; }
-        .bg-kotak-2 { background-color: #7D61F1; }
-        .text-tulisan { color: #0e0e0e; }
-        .kotak-1 {
-            height: 40vh; /* Tinggi kotak 1 dikurangi menjadi setengah dari viewport height */
+        body {
+            font-family: 'Poppins', sans-serif; /* Mengatur font untuk seluruh halaman */
         }
-        .kotak-2 {
-            height: calc(100% - 48px); /* Menyesuaikan tinggi kotak 2 */
+        .bg-kotak-1 { background-color: #ffffff; } /* Ubah warna latar belakang kotak menjadi putih */
+        .text-tulisan { color: #0e0e0e; } /* Warna teks dan ikon panah */
+
+        .kotak-gif {
+            height: 30vh; /* Tinggi kotak 1 diubah menjadi 30% dari viewport height */
+        }
+
+        .kotak-inner-gif {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 ratio */
+            background-color: #7D61F1; /* Warna latar belakang ungu */
+            overflow: hidden;
+        }
+
+        .kotak-youtube {
+            height: 34vh; /* Tinggi kotak 1 diubah menjadi 34% dari viewport height */
+        }
+
+        .kotak-inner-youtube {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 ratio */
+            background-color: #7D61F1; /* Warna latar belakang ungu */
+            overflow: hidden;
+        }
+
+        .kotak-inner-gif iframe, .kotak-inner-gif img, .kotak-inner-youtube iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .truncate-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .text-bold {
+            font-weight: 700; /* Mengatur teks menjadi bold */
         }
     </style>
 </head>
-<body class="bg-black pt-[50px] mt-[50px]">
+<body class="bg-black">
     <!-- Container Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-        <!-- Kotak 1 (Outer Box) -->
-        <div class="relative w-full kotak-1 bg-kotak-1 rounded-2xl overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        <!-- Kotak dengan GIF -->
+        <div class="relative w-full kotak-gif bg-kotak-1 rounded-2xl overflow-hidden">
             <!-- Teks di atas kotak 2 -->
-            <div class="absolute top-4 left-4 right-4 flex items-center bg-kotak-1 rounded-t-2xl">
-                <p class="text-lg text-tulisan">Tulisan di sini</p>
-            </div>
+            <a href="URL_HALAMAN_TUJUAN" class="absolute top-2 left-4 right-4 flex items-center justify-between bg-kotak-1 rounded-t-2xl p-2">
+                <p class="text-lg text-tulisan truncate-text text-bold" style="max-width: calc(100% - 2rem);">Tulisan di sini</p>
+                <!-- Tanda panah kanan -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-tulisan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
             <!-- Kotak 2 (Inner Box) dengan GIF -->
-            <div class="absolute top-12 left-0 right-0 bottom-0 bg-kotak-2 rounded-2xl flex items-center justify-center">
+            <div class="absolute top-12 left-0 right-0 bottom-0 kotak-inner-gif rounded-2xl flex items-center justify-center">
                 <!-- Menambahkan GIF -->
                 <img src="URL_GIF_KAMU" alt="Deskripsi GIF" class="w-full h-full object-cover rounded-2xl">
             </div>
         </div>
-        <!-- Kotak 1 yang lainnya untuk tampilan grid -->
-        <div class="relative w-full kotak-1 bg-kotak-1 rounded-2xl overflow-hidden">
+
+        <!-- Kotak dengan YouTube Video -->
+        <div class="relative w-full kotak-youtube bg-kotak-1 rounded-2xl overflow-hidden">
             <!-- Teks di atas kotak 2 -->
-            <div class="absolute top-4 left-4 right-4 flex items-center bg-kotak-1 rounded-t-2xl">
-                <p class="text-lg text-tulisan">Tulisan di sini</p>
-            </div>
-            <!-- Kotak 2 (Inner Box) dengan GIF -->
-            <div class="absolute top-12 left-0 right-0 bottom-0 bg-kotak-2 rounded-2xl flex items-center justify-center">
-                <!-- Menambahkan GIF -->
-                <img src="URL_GIF_KAMU" alt="Deskripsi GIF" class="w-full h-full object-cover rounded-2xl">
-            </div>
-        </div>
-        <div class="relative w-full kotak-1 bg-kotak-1 rounded-2xl overflow-hidden">
-            <!-- Teks di atas kotak 2 -->
-            <div class="absolute top-4 left-4 right-4 flex items-center bg-kotak-1 rounded-t-2xl">
-                <p class="text-lg text-tulisan">Tulisan di sini</p>
-            </div>
-            <!-- Kotak 2 (Inner Box) dengan GIF -->
-            <div class="absolute top-12 left-0 right-0 bottom-0 bg-kotak-2 rounded-2xl flex items-center justify-center">
-                <!-- Menambahkan GIF -->
-                <img src="URL_GIF_KAMU" alt="Deskripsi GIF" class="w-full h-full object-cover rounded-2xl">
-            </div>
-        </div>
-        <div class="relative w-full kotak-1 bg-kotak-1 rounded-2xl overflow-hidden">
-            <!-- Teks di atas kotak 2 -->
-            <div class="absolute top-4 left-4 right-4 flex items-center bg-kotak-1 rounded-t-2xl">
-                <p class="text-lg text-tulisan">Tulisan di sini</p>
-            </div>
-            <!-- Kotak 2 (Inner Box) dengan GIF -->
-            <div class="absolute top-12 left-0 right-0 bottom-0 bg-kotak-2 rounded-2xl flex items-center justify-center">
-                <!-- Menambahkan GIF -->
-                <img src="URL_GIF_KAMU" alt="Deskripsi GIF" class="w-full h-full object-cover rounded-2xl">
+            <a href="URL_HALAMAN_TUJUAN" class="absolute top-2 left-4 right-4 flex items-center justify-between bg-kotak-1 rounded-t-2xl p-2">
+                <p class="text-lg text-tulisan truncate-text text-bold" style="max-width: calc(100% - 2rem);">Tulisan di sini</p>
+                <!-- Tanda panah kanan -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-tulisan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+            <!-- Kotak 2 (Inner Box) dengan YouTube Video -->
+            <div class="absolute top-12 left-0 right-0 bottom-0 kotak-inner-youtube rounded-2xl flex items-center justify-center">
+                <!-- Embed YouTube Video -->
+                <iframe src="https://www.youtube.com/embed/Je4b1jSohL4?si=Yth78HfTDLNIt4a8" 
+                        title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
