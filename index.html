@@ -3,6 +3,7 @@ layout: home
 title: Ahtera Studio
 ---
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,26 +16,18 @@ title: Ahtera Studio
             padding-top: 50px;
             font-family: 'Poppins', sans-serif; /* Mengatur font untuk seluruh halaman */
         }
-        .bg-kotak-1 { background-color: #ffffff; } /* Ubah warna latar belakang kotak menjadi putih */
+        .bg-kotak-1 { background-color: #AFE507; } /* Ubah warna latar belakang kotak menjadi putih */
         .text-tulisan { color: #0e0e0e; } /* Warna teks dan ikon panah */
 
-        .kotak-gif {
-            height: 30vh; /* Tinggi kotak 1 diubah menjadi 30% dari viewport height */
+ @media (max-width: 767px) {
+        .kotak-gif, .kotak-youtube {
+            height: 250px; /* Ubah sesuai dengan tinggi yang diinginkan */
+            width: 100%; /* Agar lebar kotak menyesuaikan dengan lebar kontainer */
+            max-width: 600px; /* Maksimal lebar kotak */
+            margin: auto; /* Tengah-tengah di dalam kontainer */
         }
 
-        .kotak-inner-gif {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 ratio */
-            background-color: #7D61F1; /* Warna latar belakang ungu */
-            overflow: hidden;
-        }
-
-        .kotak-youtube {
-            height: 33vh; /* Tinggi kotak 1 diubah menjadi 34% dari viewport height */
-        }
-
-        .kotak-inner-youtube {
+        .kotak-inner-gif, .kotak-inner-youtube {
             position: relative;
             width: 100%;
             padding-top: 56.25%; /* 16:9 ratio */
@@ -60,6 +53,45 @@ title: Ahtera Studio
         .text-bold {
             font-weight: 700; /* Mengatur teks menjadi bold */
         }
+}
+
+ @media (min-width: 768px) {
+        .kotak-gif, .kotak-youtube {
+            height: 338px; /* Ubah sesuai dengan tinggi yang diinginkan */
+            width: 100%; /* Agar lebar kotak menyesuaikan dengan lebar kontainer */
+            max-width: 600px; /* Maksimal lebar kotak */
+            margin: auto; /* Tengah-tengah di dalam kontainer */
+        }
+
+        .kotak-inner-gif, .kotak-inner-youtube {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 ratio */
+            background-color: #7D61F1; /* Warna latar belakang ungu */
+            overflow: hidden;
+        }
+
+        .kotak-inner-gif iframe, .kotak-inner-gif img, .kotak-inner-youtube iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .truncate-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .text-bold {
+            font-weight: 700; /* Mengatur teks menjadi bold */
+        }
+}
+        
+
     </style>
 </head>
 <body class="bg-black">
