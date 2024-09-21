@@ -17,82 +17,6 @@ title: Ahtera Group International
             padding-top: 50px;
             font-family: 'Poppins', sans-serif; /* Mengatur font untuk seluruh halaman */
         }
-        .bg-kotak-1 { background-color: #282828; } /* Ubah warna latar belakang kotak menjadi putih */
-        .text-tulisan { color: #ffffff; } /* Warna teks dan ikon panah */
-
- @media (max-width: 767px) {
-        .kotak-gif, .kotak-youtube {
-            height: 250px; /* Ubah sesuai dengan tinggi yang diinginkan */
-            width: 100%; /* Agar lebar kotak menyesuaikan dengan lebar kontainer */
-            max-width: 600px; /* Maksimal lebar kotak */
-            margin: auto; /* Tengah-tengah di dalam kontainer */
-        }
-
-        .kotak-inner-gif, .kotak-inner-youtube {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 ratio */
-            background-color: #7D61F1; /* Warna latar belakang ungu */
-            overflow: hidden;
-        }
-
-        .kotak-inner-gif iframe, .kotak-inner-gif img, .kotak-inner-youtube iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .truncate-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .text-bold {
-            font-weight: 700; /* Mengatur teks menjadi bold */
-        }
-}
-
- @media (min-width: 768px) {
-        .kotak-gif, .kotak-youtube {
-            height: 300px; /* Ubah sesuai dengan tinggi yang diinginkan */
-            width: 100%; /* Agar lebar kotak menyesuaikan dengan lebar kontainer */
-            max-width: 600px; /* Maksimal lebar kotak */
-            margin: auto; /* Tengah-tengah di dalam kontainer */
-        }
-
-        .kotak-inner-gif, .kotak-inner-youtube {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 ratio */
-            background-color: #7D61F1; /* Warna latar belakang ungu */
-            overflow: hidden;
-        }
-
-        .kotak-inner-gif iframe, .kotak-inner-gif img, .kotak-inner-youtube iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .truncate-text {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .text-bold {
-            font-weight: 700; /* Mengatur teks menjadi bold */
-        }
-}
-        
-
     </style>
 </head>
 <body>
@@ -235,41 +159,5 @@ style="background: #AFE507;">
 </div>
 <!-- end kotak menu fitur -->
 
-
-
-
-
-       
-
-
-<!-- kotak iklan -->
-<div class="relative w-full h-64 rounded-2xl overflow-hidden bg-gray-200">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0AHR6WTBN1VpKDIbOkPM7e9N1A-V_kXj4bXsE8_yVFruuiglGiDoE2kE&s=10" alt="Gambar" class="object-cover w-full h-full">
-  <div style="background-color: #FFA500;" class="absolute top-2 right-2 text-white text-xs font-bold px-2 py-1 rounded-md">
-    Ad
-  </div>
-</div>
-<!-- end kotak iklan -->
-
-
-
-
-        <!-- Kotak dengan YouTube Video -->
-        <div class="relative w-full kotak-youtube bg-kotak-1 rounded-2xl overflow-hidden">
-            <!-- Teks di atas kotak 2 -->
-            <a href="URL_HALAMAN_TUJUAN" class="absolute top-2 left-4 right-4 flex items-center justify-between bg-kotak-1 rounded-t-2xl p-2">
-                <p class="text-lg text-tulisan truncate-text text-bold" style="max-width: calc(100% - 2rem);">Tulisan di sini</p>
-                <!-- Tanda panah kanan -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-</svg>
-            </a>
-            <!-- Kotak 2 (Inner Box) dengan YouTube Video -->
-            <div class="absolute top-12 left-0 right-0 bottom-0 kotak-inner-youtube rounded-2xl flex items-center justify-center">
-                <!-- Embed YouTube Video -->
-                <iframe src="https://www.youtube.com/embed/Je4b1jSohL4?si=Yth78HfTDLNIt4a8" 
-                        title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
     </div>
 </body>
