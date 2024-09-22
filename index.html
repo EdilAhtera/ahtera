@@ -22,51 +22,6 @@ title: Ahtera Group International
 <body>
 
 
-<!-- Onboarding Screen -->
-  <div id="onboarding" class="fixed inset-0 z-100 flex items-center justify-center bg-[#d5ff5f] transition-opacity duration-500">
-    <h1 id="changing-text" class="text-[#131419] text-3xl md:text-5xl font-bold"></h1>
-  </div>
-  <script> document.addEventListener('DOMContentLoaded', function () {
-      const texts = [
-        "Welcome to Ahtera Group", 
-        "#beyondborderswithahtera", 
-        "Get Ready!"
-      ];
-      let index = 0;
-      const changingText = document.getElementById('changing-text');
-      const onboarding = document.getElementById('onboarding');
-      const mainContent = document.getElementById('main-content');
-
-      // Function buat ganti-ganti text
-      function changeText() {
-        changingText.textContent = texts[index];
-        index++;
-        if (index >= texts.length) {
-          clearInterval(interval);
-          // Transisi ke halaman utama
-          onboarding.classList.add('opacity-0');
-          setTimeout(() => {
-            onboarding.style.display = 'none';
-            mainContent.classList.remove('hidden');
-          }, 500); // Delay buat opacity transisi
-        }
-      }
-
-      // Set interval buat ganti text tiap detik
-      const interval = setInterval(changeText, 1000);
-      changeText(); // Eksekusi pertama kali langsung
-
-      // Cek mode mobile
-      if (window.innerWidth > 768) {
-        // Kalau layar lebih dari 768px (desktop/tablet), langsung skip onboarding
-        onboarding.style.display = 'none';
-        mainContent.classList.remove('hidden');
-        clearInterval(interval);
-      }
-    });
-  </script>
-
-
 
     <!-- Container Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
